@@ -5,14 +5,20 @@ application/cache/*
 
 application/logs/*
 !application/logs/index.html
-
 !application/*/.htaccess
 
-composer.lock
+application/sessions/*
+!application/sessions/index.html
+
+uploads/*
+!uploads/index.html
+!uploads/Manute.png
+
 /vendor/
 
 # IDE Files
 #-------------------------
+/nbproject/
 .idea/*
 
 ## Sublime Text cache files

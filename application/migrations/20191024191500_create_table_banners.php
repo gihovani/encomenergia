@@ -62,7 +62,7 @@ class Migration_Create_table_banners extends CI_Migration
         $_POST = [
             'title' => 'Banner 01',
             'link' => 'http://gg2.com.br',
-            'image' => 'Mamute.png'
+            'image' => 'Manute.png'
         ];
         $this->banner_model->insert();
     }
