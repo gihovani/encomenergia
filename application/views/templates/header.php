@@ -45,6 +45,8 @@
     <!-- Bootstrap CSS -->
     <title><?php echo isset($title) ? $title : PROJECT_NAME; ?></title>
     <link rel="stylesheet" href="<?php echo base_url('assets/bootstrap-4.3.1/css/bootstrap.min.css');?>" />
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/slick.min.css');?>" />
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/style.css');?>" />
     <?php if (isset($styles) && isset($slug) && !empty($styles)):?>
         <link rel="stylesheet" href="<?php echo site_url('files/' . $slug . '.css');?>">
     <?php endif;?>
