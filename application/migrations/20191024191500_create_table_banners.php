@@ -59,12 +59,14 @@ class Migration_Create_table_banners extends CI_Migration
 
     private function addEntries()
     {
-        $_POST = [
-            'title' => 'Banner 01',
-            'link' => 'http://gg2.com.br',
-            'image' => 'Manute.png'
-        ];
-        $this->banner_model->insert();
+        for($i=1;$i<=5;$i++) {
+			$_POST = [
+				'title' => 'Banner 0'.$i,
+				'link' => base_url(),
+				'image' => 'banner.png'
+			];
+			$this->banner_model->insert();
+		}
     }
 
     public function down()

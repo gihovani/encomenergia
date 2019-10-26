@@ -41,7 +41,13 @@ class MY_Controller extends CI_Controller
             $data['login'] = $this->session->userdata('login');
             $this->load->view('admin/navbar', $data);
         }
+        if ($this->router->class === 'pages') {
+			$this->load->view('pages/top', $data);
+		}
         $this->load->view($page, $data);
+		if ($this->router->class === 'pages') {
+			$this->load->view('pages/bottom', $data);
+		}
         $this->load->view('templates/footer', $data);
     }
 

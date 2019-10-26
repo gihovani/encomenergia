@@ -3,6 +3,7 @@ defined('BASEPATH') || exit('No direct script access allowed');
 
 /**
  * @property Page_model $page_model
+ * @property Banner_model $banner_model
  * @property Contact_model $contact_model
  */
 class Pages extends MY_Controller {
@@ -10,14 +11,15 @@ class Pages extends MY_Controller {
     {
         parent::__construct();
         $this->load->model('page_model');
-        $this->load->model('contact_model');
+		$this->load->model('banner_model');
+		$this->load->model('contact_model');
     }
 
 	public function view($page = 'home')
 	{
         $data = $this->getData($page);
         if ( ! file_exists(APPPATH.'views/pages/'.$page.'.php')) {
-            $page = 'post';
+            $page = $data->type;
         }
 
         $this->html('pages/'.$page, $data);
@@ -61,6 +63,12 @@ class Pages extends MY_Controller {
         if (empty($data)) {
             show_404();
         }
+
+        if ($page === 'home') {
+        	$data->posts = $this->page_model->items(['type' => 'post'], 4, 0, 'Page_model');
+        	$data->banners = $this->banner_model->items([], NULL, NULL, 'Banner_model');
+		}
+		$data->services = $this->page_model->items(['type' => 'service'], NULL, NULL, 'Page_model');
         return $data;
     }
 }

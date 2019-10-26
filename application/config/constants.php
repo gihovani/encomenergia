@@ -90,3 +90,5 @@ define('CURRENT_DATETIME', date('Y-m-d H:i:S'));
 define('EMAIL_FROM', 'gihovani@speedgraph.com.br');
 define('EMAIL_TO', 'gihovani.demetrio@dentalspeed.com');
 define('PROJECT_NAME', 'Encom Energia');
+define('UPLOAD_PATH', './uploads/');
+define('PHONE_CTA', '+556132340202');

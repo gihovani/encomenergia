@@ -34,6 +34,6 @@ class Banner_model extends MY_Model {
     }
 
     public function getImageUrl() {
-        return ($this->image) ? base_url('uploads/'.$this->image) : '';
+        return ($this->image) ? base_url(UPLOAD_PATH.$this->image) : '';
     }
 }
