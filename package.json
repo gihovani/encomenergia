@@ -1,0 +1,25 @@
+{
+  "name": "EncomEnergia",
+  "version": "1.0.0",
+  "description": "Site Encom Energia",
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.16.0",
+    "slick-carousel": "^1.8.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gihovani/encomenergia.git"
+  },
+  "author": "Gihovani Demetrio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gihovani/encomenergia/issues"
+  },
+  "homepage": "https://encomenergia.com.br"
+}

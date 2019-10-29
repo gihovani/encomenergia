@@ -139,7 +139,7 @@
 
                 <div class="form-group">
                     <label for="content">Conteúdo</label>
-                    <textarea class="form-control"
+                    <textarea class="ckeditor"
                               id="content"
                               name="content"
                               aria-describedby="contentHelp"

@@ -1,5 +1,4 @@
 $(document).ready(function(){
-
   $('.slick-banner').slick({
 	  	dots:true,
 	  	infinite: true,
@@ -7,5 +6,4 @@ $(document).ready(function(){
         slidesToShow: 1,
         slidesToSroll: 1,
   });
-
 });

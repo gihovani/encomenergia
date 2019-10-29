@@ -87,7 +87,7 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 
 define('ITEMS_PER_PAGE', 10);
 define('CURRENT_DATETIME', date('Y-m-d H:i:S'));
-define('EMAIL_FROM', 'gihovani@speedgraph.com.br');
+define('EMAIL_FROM', 'adm@encomenergia.com.br');
 define('EMAIL_TO', 'gihovani.demetrio@dentalspeed.com');
 define('PROJECT_NAME', 'Encom Energia');
 define('UPLOAD_PATH', './uploads/');

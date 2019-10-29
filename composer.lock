@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "aedaa1b10fc35a87eed84bdbe0a81855",
+    "content-hash": "8febab544afecf5763cec4ac7b1c903a",
     "packages": [
         {
-            "name": "bcit-ci/codeigniter",
-            "version": "3.1.10",
+            "name": "codeigniter/framework",
+            "version": "3.1.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bcit-ci/CodeIgniter.git",
-                "reference": "c576995304fc3609cca0b7b92d1b2cd611ec82f5"
+                "reference": "b73eb19aed66190c10c9cad476da7c36c271d6dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bcit-ci/CodeIgniter/zipball/c576995304fc3609cca0b7b92d1b2cd611ec82f5",
-                "reference": "c576995304fc3609cca0b7b92d1b2cd611ec82f5",
+                "url": "https://api.github.com/repos/bcit-ci/CodeIgniter/zipball/b73eb19aed66190c10c9cad476da7c36c271d6dc",
+                "reference": "b73eb19aed66190c10c9cad476da7c36c271d6dc",
                 "shasum": ""
             },
             "require": {
@@ -37,8 +37,7 @@
             ],
             "description": "The CodeIgniter framework",
             "homepage": "https://codeigniter.com",
-            "abandoned": "codeigniter/framework",
-            "time": "2019-01-16T15:49:35+00:00"
+            "time": "2019-09-19T12:08:45+00:00"
         }
     ],
     "packages-dev": [],

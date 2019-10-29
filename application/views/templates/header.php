@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<base href="<?php echo base_url();?>" />
 
     <?php if (isset($title)):?>
     <meta name="title" content="<?php echo $title; ?>">
@@ -44,18 +45,9 @@
 	<!-- /icons -->
     <!-- Bootstrap CSS -->
     <title><?php echo isset($title) ? $title : PROJECT_NAME; ?></title>
-    <link rel="stylesheet" href="<?php echo base_url('assets/bootstrap-4.3.1/css/bootstrap.min.css');?>" />
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/slick.min.css');?>" />
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/style.css');?>" />
-    <?php if (isset($styles) && isset($slug) && !empty($styles)):?>
-        <link rel="stylesheet" href="<?php echo site_url('files/' . $slug . '.css');?>">
-    <?php endif;?>
+	<?php if(isset($css) && is_array($css)):?>
+		<?php foreach ($css as $tmp):?>
+			<link rel="stylesheet" type="text/css" href="<?php echo $tmp;?>" />
+		<?php endforeach;?>
+	<?php endif;?>
 <body>
-<?php if (isset($message)):?>
-<div class="alert alert-info alert-dismissible fade show" role="alert">
-    <?php echo $message;?>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
-</div>
-<?php endif;?>

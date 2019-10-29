@@ -15,6 +15,7 @@ uploads/*
 !uploads/Manute.png
 
 /vendor/
+/node_modules/
 
 # IDE Files
 #-------------------------
