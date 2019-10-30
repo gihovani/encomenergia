@@ -1,6 +1,6 @@
 <?php
 $config = [
-    'pages/contact_submit' => [
+    'pages/submit' => [
         ['field' => 'name', 'label' => 'Nome', 'rules' => 'required'],
         ['field' => 'email', 'label' => 'E-mail', 'rules' => 'required|valid_email'],
         ['field' => 'message', 'label' => 'Mensagem', 'rules' => 'required']

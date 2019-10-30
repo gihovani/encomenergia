@@ -42,7 +42,7 @@ class Pages extends MY_Controller
 		$this->show($content, $extension);
 	}
 
-	public function contact_submit()
+	public function submit()
 	{
 		if ($this->form_validation->run()) {
 			$post = $this->input->post();
@@ -51,15 +51,28 @@ class Pages extends MY_Controller
 				'post' => $post,
 				'email_sended' => $this->contact_model->insert()
 			];
+			$this->redirect('Sua mensagem foi enviada com sucesso!', '/');
 		} else {
-			$response = [
-				'errors' => $this->form_validation->error_array()
-			];
+			$error = '<ul>'.$this->form_validation->error_string('<li>', '</li>').'</ul>';
+			$this->redirect($error, 'contato');
 		}
 
 		$this->show(json_encode($response, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
 	}
 
+	protected function getListPage($type)
+	{
+		$filter = ['type' => $type];
+		$offset = intval($this->input->get('per_page'));
+		$count = $this->post_model->count($filter);
+		$itens = $this->post_model->items($filter, 10, $offset, 'Post_model');
+		$pagination = $this->pagination->initialize([
+			'page_query_string' => true,
+			'base_url' => site_url('noticias'),
+			'total_rows' => $count
+		]);
+		return ['itens' => $itens, 'pagination' => $pagination];
+	}
 	protected function getData($page)
 	{
 		/** @var Post_model $data */
@@ -67,20 +80,30 @@ class Pages extends MY_Controller
 		if (empty($data)) {
 			show_404();
 		}
+		$this
+			->setStaticFile('assets/css/style.css')
+			->setStaticFile('assets/js/default.js');
 
 		if ($page === 'home') {
+			$this
+				->setStaticFile('node_modules/slick-carousel/slick/slick.css')
+				->setStaticFile('node_modules/slick-carousel/slick/slick.min.js');
 			$data->posts = $this->post_model->items(['type' => 'post'], 4, 0, 'Post_model');
 			$data->banners = $this->banner_model->items([], NULL, NULL, 'Banner_model');
+		} elseif($page === 'noticias') {
+			$itens = $this->getListPage('post');
+			$data->posts = $itens['itens'];
+			$data->pagination = $itens['pagination'];
+		} elseif($page === 'servicos') {
+			$itens = $this->getListPage('service');
+			$data->posts = $itens['itens'];
+			$data->pagination = $itens['pagination'];
+		} else {
+			$data->image = $data->getImageUrl();
 		}
-		$data->image = $data->getImageUrl();
+
 		$data->config = $this->config_model->item(1);
 		$data->services = $this->post_model->items(['type' => 'service'], NULL, NULL, 'Post_model');
-
-		$this
-			->setStaticFile('node_modules/slick-carousel/slick/slick.css')
-			->setStaticFile('assets/css/style.css')
-			->setStaticFile('node_modules/slick-carousel/slick/slick.min.js')
-			->setStaticFile('assets/js/default.js');
 		if (isset($data->scripts) && !empty($data->scripts)) {
 			$this->setStaticFile('files/' . $page . '.js');
 		}
@@ -89,4 +112,6 @@ class Pages extends MY_Controller
 		}
 		return $data;
 	}
+
+
 }

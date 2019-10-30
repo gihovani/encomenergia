@@ -19,8 +19,8 @@
 							<li><a href="<?php echo base_url();?>">HOME</a></li>
 							<li><a href="<?php echo site_url('quem-somos');?>">QUEM SOMOS</a></li>
 							<li><a href="<?php echo site_url('onde-atuamos');?>">ONDE ATUAMOS</a></li>
-							<li><a href="<?php echo site_url('services');?>">SERVIÇOS DE ENGENHARIA</a></li>
-							<li><a href="<?php echo site_url('posts');?>">NOTÍCIAS</a></li>
+							<li><a href="<?php echo site_url('servicos');?>">SERVIÇOS DE ENGENHARIA</a></li>
+							<li><a href="<?php echo site_url('noticias');?>">NOTÍCIAS</a></li>
 							<li><a href="<?php echo site_url('portfolio');?>">PORTFÓLIO</a></li>
 							<li><a href="<?php echo site_url('compliance');?>">COMPLIANCE</a></li>
 							<li><a href="<?php echo site_url('contato');?>">CONTATO</a></li>

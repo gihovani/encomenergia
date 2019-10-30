@@ -58,7 +58,7 @@
 			<?php endforeach;?>
 		</div>
 		<div class="news-more">
-			<a class="news-more-link" href="<?php echo site_url('posts');?>">+ Encom<span>News</span></a>
+			<a class="news-more-link" href="<?php echo site_url('noticias');?>">+ Encom<span>News</span></a>
 		</div>
 	</div>
 </section>

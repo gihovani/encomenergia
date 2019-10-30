@@ -10,7 +10,7 @@
 					<h3><?php echo $description;?></h3>
 				<?php endif;?>
 				<?php if(isset($image) && !empty($image)):?>
-					<img src="<?php echo $image;?>" alt="<?php echo $title;?>" class="img-responsive my-3">
+					<img src="<?php echo $image;?>" alt="<?php echo $title;?>" class="img-responsive img-thumbnail">
 				<?php endif;?>
 				<?php if(isset($content) && !empty($content)):?>
 					<?php echo $content;?>

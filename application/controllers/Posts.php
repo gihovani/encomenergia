@@ -16,7 +16,7 @@ class Posts extends MY_Controller
 	{
 		$filter = [];
 		$count = $this->post_model->count($filter);
-		$offset = intval($offset);
+		$offset = intval($this->input->get('cur_page'));
 		if ($offset < 0) {
 			$offset = 0;
 		}
@@ -25,7 +25,8 @@ class Posts extends MY_Controller
 			'count' => $count,
 			'pagination' => $this->pagination->initialize([
 				'base_url' => site_url('posts/index'),
-				'total_rows' => $count
+				'total_rows' => $count,
+				'enable_query_strings' => true
 			])
 		];
 		$this->html('admin/post/index', $data);

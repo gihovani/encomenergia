@@ -9,6 +9,7 @@
  * @property CI_Pagination $pagination
  * @property CI_Upload $upload
  * @property CI_Router $router
+ * @property CI_URI $uri
  */
 class MY_Controller extends CI_Controller
 {

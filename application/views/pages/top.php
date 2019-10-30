@@ -71,10 +71,10 @@
 						<a class="nav-link<?php echo ($slug === 'onde-atuamos') ? ' active' : '' ;?>" href="<?php echo site_url('onde-atuamos');?>">ONDE ATUAMOS</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link<?php echo ($slug === 'services') ? ' active' : '' ;?>" href="<?php echo site_url('services');?>">SERVIÇOS DE ENGENHARIA</a>
+						<a class="nav-link<?php echo ($slug === 'servicos') ? ' active' : '' ;?>" href="<?php echo site_url('servicos');?>">SERVIÇOS DE ENGENHARIA</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link<?php echo ($slug === 'posts') ? ' active' : '' ;?>" href="<?php echo site_url('posts');?>">NOTÍCIAS</a>
+						<a class="nav-link<?php echo ($slug === 'noticias') ? ' active' : '' ;?>" href="<?php echo site_url('noticias');?>">NOTÍCIAS</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link<?php echo ($slug === 'portfolio') ? ' active' : '' ;?>" href="<?php echo site_url('portfolio');?>">PORTFÓLIO</a>
