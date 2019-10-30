@@ -10,10 +10,11 @@
 
 class Migrate extends CI_Controller
 {
-    /**
-     * @var CI_Migration
-     */
-    public $migration;
+	/**
+	 * @var CI_Migration
+	 */
+	public $migration;
+
 	private function show($text)
 	{
 		$this->output
@@ -21,21 +22,22 @@ class Migrate extends CI_Controller
 			->_display();
 		exit();
 	}
-    public function index()
-    {
-    	$message = 'Não foi possivel fazer a migração.';
-    	if (!is_cli()) {
+
+	public function index()
+	{
+		$message = 'Não foi possivel fazer a migração.';
+		if (!is_cli()) {
 			show_error($message);
 		}
-        $this->load->library('migration');
-        if ($this->migration->current() === FALSE) {
-            show_error($this->migration->error_string());
-        }
+		$this->load->library('migration');
+		if ($this->migration->current() === FALSE) {
+			show_error($this->migration->error_string());
+		}
 
 		$latestMigrate = $this->migration->latest();
-        if (!$latestMigrate) {
+		if (!$latestMigrate) {
 			show_error($message);
 		}
 		return $this->show('Migração feita com sucesso: ' . $latestMigrate);
-    }
+	}
 }

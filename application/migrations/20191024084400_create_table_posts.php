@@ -9,35 +9,35 @@
 class Migration_Create_table_posts extends CI_Migration
 {
 
-    public function __construct($config = [])
-    {
-        parent::__construct($config);
-        $this->load->model('post_model');
-    }
+	public function __construct($config = [])
+	{
+		parent::__construct($config);
+		$this->load->model('post_model');
+	}
 
-    public function up()
-    {
-        $this->createTable();
-        $this->addEntries();
-    }
+	public function up()
+	{
+		$this->createTable();
+		$this->addEntries();
+	}
 
-    private function createTable()
-    {
-        $this->dbforge->add_field([
-            'id' => [
-                'type' => 'INT',
-                'constraint' => 11,
-                'unsigned' => TRUE,
-                'auto_increment' => TRUE
-            ],
-            'type' => [
-                'type' => 'VARCHAR',
-                'constraint' => '100',
-            ],
-            'slug' => [
-                'type' => 'VARCHAR',
-                'constraint' => '100',
-            ],
+	private function createTable()
+	{
+		$this->dbforge->add_field([
+			'id' => [
+				'type' => 'INT',
+				'constraint' => 11,
+				'unsigned' => TRUE,
+				'auto_increment' => TRUE
+			],
+			'type' => [
+				'type' => 'VARCHAR',
+				'constraint' => '100',
+			],
+			'slug' => [
+				'type' => 'VARCHAR',
+				'constraint' => '100',
+			],
 			'image' => [
 				'type' => 'VARCHAR',
 				'constraint' => '200',
@@ -48,57 +48,57 @@ class Migration_Create_table_posts extends CI_Migration
 				'constraint' => '200',
 				'null' => TRUE,
 			],
-            'title' => [
-                'type' => 'VARCHAR',
-                'constraint' => '70',
-            ],
-            'description' => [
-                'type' => 'VARCHAR',
-                'constraint' => '160',
-                'null' => TRUE,
-            ],
-            'keywords' => [
-                'type' => 'VARCHAR',
-                'constraint' => '100',
-                'null' => TRUE,
-            ],
-            'author' => [
-                'type' => 'VARCHAR',
-                'constraint' => '50',
-                'null' => TRUE,
-            ],
-            'content' => [
-                'type' => 'MEDIUMTEXT',
-                'null' => TRUE,
-            ],
-            'styles' => [
-                'type' => 'MEDIUMTEXT',
-                'null' => TRUE,
-            ],
-            'scripts' => [
-                'type' => 'MEDIUMTEXT',
-                'null' => TRUE,
-            ],
-            'active' => [
+			'title' => [
+				'type' => 'VARCHAR',
+				'constraint' => '70',
+			],
+			'description' => [
+				'type' => 'VARCHAR',
+				'constraint' => '160',
+				'null' => TRUE,
+			],
+			'keywords' => [
+				'type' => 'VARCHAR',
+				'constraint' => '100',
+				'null' => TRUE,
+			],
+			'author' => [
+				'type' => 'VARCHAR',
+				'constraint' => '50',
+				'null' => TRUE,
+			],
+			'content' => [
+				'type' => 'MEDIUMTEXT',
+				'null' => TRUE,
+			],
+			'styles' => [
+				'type' => 'MEDIUMTEXT',
+				'null' => TRUE,
+			],
+			'scripts' => [
+				'type' => 'MEDIUMTEXT',
+				'null' => TRUE,
+			],
+			'active' => [
 				'type' => 'TINYINT',
 				'DEFAULT' => 0
 			],
-            'created_at' => [
-                'type' => 'timestamp',
-                'null' => TRUE,
-            ],
-            'updated_at' => [
-                'type' => 'timestamp',
-                'null' => TRUE,
-            ]
-        ]);
-        $this->dbforge->add_key('id', TRUE);
-        $this->dbforge->create_table('posts', TRUE);
-    }
+			'created_at' => [
+				'type' => 'timestamp',
+				'null' => TRUE,
+			],
+			'updated_at' => [
+				'type' => 'timestamp',
+				'null' => TRUE,
+			]
+		]);
+		$this->dbforge->add_key('id', TRUE);
+		$this->dbforge->create_table('posts', TRUE);
+	}
 
-    private function addEntries()
-    {
-        $data = [];
+	private function addEntries()
+	{
+		$data = [];
 		$data[] = [
 			'type' => 'post',
 			'image' => 'news-1.png',
@@ -131,78 +131,78 @@ class Migration_Create_table_posts extends CI_Migration
 			'description' => 'The sea desires with amnesty, taste the cook islands, The sea desires with amnesty, taste the cook islands.',
 			'content' => '<h2>Titulo Seu Dinheiro</h2><p>The sea desires with amnesty, taste the cook islands.</p><p>The sea desires with amnesty, taste the cook islands.</p>'
 		];
-        $data[] = [
-            'type' => 'service',
-            'title' => 'Engenharia Civil',
+		$data[] = [
+			'type' => 'service',
+			'title' => 'Engenharia Civil',
 			'image' => 'engenharia-civil.png',
-            'keywords' => 'Página Inicial, Encom Energia, Energia Solar, Energia Eólica',
-            'description' => 'The sea desires with amnesty, taste the cook islands, The sea desires with amnesty, taste the cook islands.',
-            'content' => 'The sea desires with amnesty, taste the cook islands, The sea desires with amnesty, taste the cook islands.'
-        ];
-        $data[] = [
-            'type' => 'service',
-            'title' => 'Engenharia de Automação',
+			'keywords' => 'Página Inicial, Encom Energia, Energia Solar, Energia Eólica',
+			'description' => 'The sea desires with amnesty, taste the cook islands, The sea desires with amnesty, taste the cook islands.',
+			'content' => 'The sea desires with amnesty, taste the cook islands, The sea desires with amnesty, taste the cook islands.'
+		];
+		$data[] = [
+			'type' => 'service',
+			'title' => 'Engenharia de Automação',
 			'image' => 'engenharia-auto.png',
-            'keywords' => 'Engenharia de Automação, Encom Energia, Energia Solar, Energia Eólica',
-            'description' => 'The sea desires with amnesty, taste the cook islands, The sea desires with amnesty, taste the cook islands.',
-            'content' => 'The sea desires with amnesty, taste the cook islands, The sea desires with amnesty, taste the cook islands.'
-        ];
-        $data[] = [
-            'type' => 'service',
-            'title' => 'Engenharia de Energia',
+			'keywords' => 'Engenharia de Automação, Encom Energia, Energia Solar, Energia Eólica',
+			'description' => 'The sea desires with amnesty, taste the cook islands, The sea desires with amnesty, taste the cook islands.',
+			'content' => 'The sea desires with amnesty, taste the cook islands, The sea desires with amnesty, taste the cook islands.'
+		];
+		$data[] = [
+			'type' => 'service',
+			'title' => 'Engenharia de Energia',
 			'image' => 'engenharia-energia.png',
-            'keywords' => 'Engenharia de Energia, Encom Energia, Energia Solar, Energia Eólica',
-            'description' => 'The sea desires with amnesty, taste the cook islands, The sea desires with amnesty, taste the cook islands.',
-            'content' => 'The sea desires with amnesty, taste the cook islands, The sea desires with amnesty, taste the cook islands.'
-        ];
-        $data[] = [
-            'type' => 'service',
-            'title' => 'Engenharia Fotovoltáica',
+			'keywords' => 'Engenharia de Energia, Encom Energia, Energia Solar, Energia Eólica',
+			'description' => 'The sea desires with amnesty, taste the cook islands, The sea desires with amnesty, taste the cook islands.',
+			'content' => 'The sea desires with amnesty, taste the cook islands, The sea desires with amnesty, taste the cook islands.'
+		];
+		$data[] = [
+			'type' => 'service',
+			'title' => 'Engenharia Fotovoltáica',
 			'image' => 'engenharia-fotovoltaica.png',
-            'keywords' => 'Engenharia de Fotovoltáica, Encom Energia, Energia Solar, Energia Eólica',
-            'description' => 'The sea desires with amnesty, taste the cook islands, The sea desires with amnesty, taste the cook islands.',
-            'content' => 'The sea desires with amnesty, taste the cook islands, The sea desires with amnesty, taste the cook islands.'
-        ];
-        $data[] = [
-            'type' => 'service',
-            'title' => 'Engenharia de Manutenção',
+			'keywords' => 'Engenharia de Fotovoltáica, Encom Energia, Energia Solar, Energia Eólica',
+			'description' => 'The sea desires with amnesty, taste the cook islands, The sea desires with amnesty, taste the cook islands.',
+			'content' => 'The sea desires with amnesty, taste the cook islands, The sea desires with amnesty, taste the cook islands.'
+		];
+		$data[] = [
+			'type' => 'service',
+			'title' => 'Engenharia de Manutenção',
 			'image' => 'engenharia-manutencao.png',
-            'keywords' => 'Engenharia de Manutenção, Encom Energia, Energia Solar, Energia Eólica',
-            'description' => 'The sea desires with amnesty, taste the cook islands, The sea desires with amnesty, taste the cook islands.',
-            'content' => 'The sea desires with amnesty, taste the cook islands, The sea desires with amnesty, taste the cook islands.'
-        ];
-        $data[] = [
-            'type' => 'service',
-            'title' => 'Engenharia de Telecomunicação',
+			'keywords' => 'Engenharia de Manutenção, Encom Energia, Energia Solar, Energia Eólica',
+			'description' => 'The sea desires with amnesty, taste the cook islands, The sea desires with amnesty, taste the cook islands.',
+			'content' => 'The sea desires with amnesty, taste the cook islands, The sea desires with amnesty, taste the cook islands.'
+		];
+		$data[] = [
+			'type' => 'service',
+			'title' => 'Engenharia de Telecomunicação',
 			'image' => 'engenharia-telecomunic.png',
-            'keywords' => 'Engenharia de Telecomunicação, Encom Energia, Energia Solar, Energia Eólica',
-            'description' => 'The sea desires with amnesty, taste the cook islands, The sea desires with amnesty, taste the cook islands.',
-            'content' => 'The sea desires with amnesty, taste the cook islands, The sea desires with amnesty, taste the cook islands.'
-        ];
-        $data[] = [
-            'type' => 'service',
-            'title' => 'Engenharia Elétrica',
+			'keywords' => 'Engenharia de Telecomunicação, Encom Energia, Energia Solar, Energia Eólica',
+			'description' => 'The sea desires with amnesty, taste the cook islands, The sea desires with amnesty, taste the cook islands.',
+			'content' => 'The sea desires with amnesty, taste the cook islands, The sea desires with amnesty, taste the cook islands.'
+		];
+		$data[] = [
+			'type' => 'service',
+			'title' => 'Engenharia Elétrica',
 			'image' => 'engenharia-eletrica.png',
-            'keywords' => 'Engenharia de Telecomunicação, Encom Energia, Energia Solar, Energia Eólica',
-            'description' => 'The sea desires with amnesty, taste the cook islands, The sea desires with amnesty, taste the cook islands.',
-            'content' => 'The sea desires with amnesty, taste the cook islands, The sea desires with amnesty, taste the cook islands.'
-        ];
-        $data[] = [
-            'type' => 'service',
-            'title' => 'Engenharia Mecânica',
+			'keywords' => 'Engenharia de Telecomunicação, Encom Energia, Energia Solar, Energia Eólica',
+			'description' => 'The sea desires with amnesty, taste the cook islands, The sea desires with amnesty, taste the cook islands.',
+			'content' => 'The sea desires with amnesty, taste the cook islands, The sea desires with amnesty, taste the cook islands.'
+		];
+		$data[] = [
+			'type' => 'service',
+			'title' => 'Engenharia Mecânica',
 			'image' => 'engenharia-mecanica.png',
-            'keywords' => 'Engenharia Mecânica, Encom Energia, Energia Solar, Energia Eólica',
-            'description' => 'The sea desires with amnesty, taste the cook islands, The sea desires with amnesty, taste the cook islands.',
-            'content' => 'The sea desires with amnesty, taste the cook islands, The sea desires with amnesty, taste the cook islands.'
-        ];
-        $data[] = [
-            'type' => 'page',
-            'slug' => 'home',
-            'title' => 'Página Inicial',
-            'keywords' => 'Página Inicial, Encom Energia, Energia Solar, Energia Eólica',
-            'description' => 'The sea desires with amnesty, taste the cook islands, The sea desires with amnesty, taste the cook islands.',
-            'content' => ''
-        ];
+			'keywords' => 'Engenharia Mecânica, Encom Energia, Energia Solar, Energia Eólica',
+			'description' => 'The sea desires with amnesty, taste the cook islands, The sea desires with amnesty, taste the cook islands.',
+			'content' => 'The sea desires with amnesty, taste the cook islands, The sea desires with amnesty, taste the cook islands.'
+		];
+		$data[] = [
+			'type' => 'page',
+			'slug' => 'home',
+			'title' => 'Página Inicial',
+			'keywords' => 'Página Inicial, Encom Energia, Energia Solar, Energia Eólica',
+			'description' => 'The sea desires with amnesty, taste the cook islands, The sea desires with amnesty, taste the cook islands.',
+			'content' => ''
+		];
 		$data[] = [
 			'type' => 'page',
 			'title' => 'Quem  Somos',
@@ -263,14 +263,14 @@ class Migration_Create_table_posts extends CI_Migration
 			'content' => ''
 		];
 
-        foreach ($data as $entry) {
-            $_POST = $entry;
-            $this->post_model->insert();
-        }
-    }
+		foreach ($data as $entry) {
+			$_POST = $entry;
+			$this->post_model->insert();
+		}
+	}
 
-    public function down()
-    {
-        $this->dbforge->drop_table('posts', TRUE);
-    }
+	public function down()
+	{
+		$this->dbforge->drop_table('posts', TRUE);
+	}
 }

@@ -11,9 +11,15 @@
 						<button type="submit" class="btn btn-primary ml-2"></button>
 					</form>
 					<ul class="topbar-social mr-4">
-						<li><a href="#"><i class="topbar-social-icon topbar-social-icon-facebook"></i></a></li>
-						<li><a href="#"><i class="topbar-social-icon topbar-social-icon-instagram"></i></a></li>
-						<li><a href="#"><i class="topbar-social-icon topbar-social-icon-youtube"></i></a></li>
+						<?php if(isset($config->facebook) && !empty($config->facebook)):?>
+						<li><a href="<?php echo $config->facebook;?>"><i class="topbar-social-icon topbar-social-icon-facebook"></i></a></li>
+						<?php endif;?>
+						<?php if(isset($config->instagram) && !empty($config->instagram)):?>
+						<li><a href="<?php echo $config->instagram;?>"><i class="topbar-social-icon topbar-social-icon-instagram"></i></a></li>
+						<?php endif;?>
+						<?php if(isset($config->youtube) && !empty($config->youtube)):?>
+						<li><a href="<?php echo $config->youtube;?>"><i class="topbar-social-icon topbar-social-icon-youtube"></i></a></li>
+						<?php endif;?>
 					</ul>
 				</div>
 			</div>
@@ -34,7 +40,13 @@
 				</div>
 				<div class="col-md-4 d-none d-md-block">
 					<div class="header-top-content">
-						<h3><a href="tel:+556132340202"><span>(61)</span> 3234 0202</a></h3>
+						<h3>
+							<?php if(isset($config->phone) && !empty($config->phone)):?>
+							<a href="tel:+55<?php echo preg_replace('/\D/', '', $config->phone);?>">
+								<?php echo $config->phone;?>
+							</a>
+							<?php endif;?>
+						</h3>
 					</div>
 				</div>
 			</div>

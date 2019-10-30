@@ -3,9 +3,13 @@
 	<div class="container">
 		<div class="row m-0">
 			<div class="col-lg-6 d-none d-lg-block">
-				<a href="tel:+556132340202" class="no-effect">
+				<?php if(isset($config->phone) && !empty($config->phone)):?>
+				<a href="tel:+55<?php echo preg_replace('/\D/', '', $config->phone);?>" class="no-effect">
+				<?php endif?>
 					<img class="footer-image" src="<?php echo base_url('assets/img/footer-image.png');?>" alt="Encom Energia" title="Encom Energia" />
+				<?php if(isset($config->phone) && !empty($config->phone)):?>
 				</a>
+				<?php endif?>
 			</div>
 			<div class="col-lg-6 col-12">
 				<div class="footer-links-container">

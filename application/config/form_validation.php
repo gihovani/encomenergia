@@ -53,12 +53,19 @@ $config = [
         ['field' => 'phone', 'label' => 'Telefone', 'rules' => 'trim|max_length[20]'],
         ['field' => 'message', 'label' => 'Mensagem', 'rules' => 'trim|max_length[65000]'],
     ],
-    'contacts/update' => [
-        ['field' => 'name', 'label' => 'Nome', 'rules' => 'trim|max_length[50]|required'],
-        ['field' => 'email', 'label' => 'E-mail', 'rules' => 'trim|max_length[200]|valid_email|required'],
-        ['field' => 'phone', 'label' => 'Telefone', 'rules' => 'trim|max_length[20]'],
-        ['field' => 'message', 'label' => 'Mensagem', 'rules' => 'trim|max_length[65000]'],
-    ],
+	'contacts/update' => [
+		['field' => 'name', 'label' => 'Nome', 'rules' => 'trim|max_length[50]|required'],
+		['field' => 'email', 'label' => 'E-mail', 'rules' => 'trim|max_length[200]|valid_email|required'],
+		['field' => 'phone', 'label' => 'Telefone', 'rules' => 'trim|max_length[20]'],
+		['field' => 'message', 'label' => 'Mensagem', 'rules' => 'trim|max_length[65000]'],
+	],
+	'configs/update' => [
+		['field' => 'email', 'label' => 'E-mail', 'rules' => 'trim|max_length[200]|valid_email|required'],
+		['field' => 'phone', 'label' => 'Telefone', 'rules' => 'trim|max_length[20]'],
+		['field' => 'facebook', 'label' => 'Facebook', 'rules' => 'trim|valid_url|max_length[200]'],
+		['field' => 'instagram', 'label' => 'Instagram', 'rules' => 'trim|valid_url|max_length[200]'],
+		['field' => 'youtube', 'label' => 'Youtube', 'rules' => 'trim|valid_url|max_length[200]'],
+	],
 	'images/cut' => [
 		['field' => 'image', 'label' => 'Imagem', 'rules' => 'trim|required|min_length[5]'],
 		['field' => 'x1', 'label' => 'X1', 'rules' => 'trim|required'],

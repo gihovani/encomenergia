@@ -3,16 +3,16 @@
 /**
  * Class Migration_Create_table_pages
  * @property CI_DB_forge dbforge
- * @property User_model $user_model
+ * @property Config_model $config_model
  * @property CI_Loader $load
  */
-class Migration_Create_table_users extends CI_Migration
+class Migration_Create_table_configs extends CI_Migration
 {
 
 	public function __construct($config = [])
 	{
 		parent::__construct($config);
-		$this->load->model('user_model');
+		$this->load->model('config_model');
 	}
 
 	public function up()
@@ -30,18 +30,29 @@ class Migration_Create_table_users extends CI_Migration
 				'unsigned' => TRUE,
 				'auto_increment' => TRUE
 			],
-			'name' => [
+			'email' => [
 				'type' => 'VARCHAR',
-				'constraint' => '50',
+				'constraint' => '200',
+			],
+			'phone' => [
+				'type' => 'VARCHAR',
+				'constraint' => '20',
 				'null' => TRUE,
 			],
-			'login' => [
+			'facebook' => [
 				'type' => 'VARCHAR',
-				'constraint' => '50',
+				'constraint' => '200',
+				'null' => TRUE,
 			],
-			'password' => [
+			'instagram' => [
 				'type' => 'VARCHAR',
-				'constraint' => '50',
+				'constraint' => '200',
+				'null' => TRUE,
+			],
+			'youtube' => [
+				'type' => 'VARCHAR',
+				'constraint' => '200',
+				'null' => TRUE,
 			],
 			'created_at' => [
 				'type' => 'timestamp',
@@ -53,21 +64,23 @@ class Migration_Create_table_users extends CI_Migration
 			]
 		]);
 		$this->dbforge->add_key('id', TRUE);
-		$this->dbforge->create_table('users', TRUE);
+		$this->dbforge->create_table('configs', TRUE);
 	}
 
 	private function addEntries()
 	{
 		$_POST = [
-			'name' => 'Gihovani Filipp',
-			'login' => 'gihovani',
-			'password' => '12456',
+			'email' => 'gihovani@gg2.com.br',
+			'phone' => '(61) 3234-0202',
+			'facebook' => 'https://facebook.com/encomenergia',
+			'instagram' => 'https://instagram.com/encomenergia',
+			'youtube' => 'https://youtube.com/encomenergia'
 		];
-		$this->user_model->insert();
+		$this->config_model->insert();
 	}
 
 	public function down()
 	{
-		$this->dbforge->drop_table('users', TRUE);
+		$this->dbforge->drop_table('configs', TRUE);
 	}
 }

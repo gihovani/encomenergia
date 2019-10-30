@@ -3,6 +3,11 @@ defined('BASEPATH') || exit('No direct script access allowed');
 
 class Images extends MY_Controller
 {
+	public function __construct($isAdmin = true)
+	{
+		parent::__construct($isAdmin);
+	}
+
 	public function cut()
 	{
 		$fileName = $this->input->get('fileName');

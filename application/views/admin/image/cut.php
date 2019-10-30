@@ -51,7 +51,10 @@
 					<tfoot>
 						<tr>
 							<td colspan="2">
-								<button type="submit" class="btn btn-block btn-primary">Salvar</button>
+								<div class="btn-group btn-block " role="group" aria-label="Basic example">
+									<button type="submit" class="btn btn-primary">Salvar</button>
+									<button type="button" class="btn btn-outline-info" onclick="history.back()">Voltar</button>
+								</div>
 							</td>
 						</tr>
 					</tfoot>

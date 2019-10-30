@@ -3,13 +3,15 @@
         <div class="col">
             <div class="table-responsive-lg">
                 <table class="table table-striped">
-                    <caption>Lista de Páginas: (<?php echo isset($count) ? intval($count) : 0 ?>)</caption>
+                    <caption>Lista de Contatos: (<?php echo isset($count) ? intval($count) : 0 ?>)</caption>
                     <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Data</th>
-                        <th scope="col">Tipo</th>
-                        <th scope="col">Título</th>
+						<th scope="col">E-mail</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">Instagram</th>
+						<th scope="col">Facebook</th>
+						<th scope="col">Youtube</th>
                         <th scope="col"></th>
                     </tr>
                     </thead>
@@ -18,11 +20,13 @@
                     <?php foreach ($items as $item):?>
                     <tr>
                         <th scope="row"><?php echo $item->id;?></th>
-                        <td><?php echo date('d/m/Y H:i:s', strtotime($item->created_at));?></td>
-                        <td><?php echo $item->getType();?></td>
-                        <td><?php echo $item->title;?></td>
+                        <td><?php echo $item->email;?></td>
+						<td><?php echo $item->phone;?></td>
+						<td><?php echo $item->instagram;?></td>
+						<td><?php echo $item->facebook;?></td>
+						<td><?php echo $item->youtube;?></td>
                         <td>
-                            <a href="<?php echo site_url('posts/update/'.$item->id);?>">Editar</a>
+                            <a href="<?php echo site_url('configs/update/'.$item->id);?>">Editar</a>
                         </td>
                     </tr>
                     <?php endforeach;?>

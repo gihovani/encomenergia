@@ -11,9 +11,9 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav">
-                        <li class="nav-item<?php echo ($menuActive === 'dashboard') ? ' active' : '' ;?>">
-                            <a class="nav-link" href="#">Dashboard</a>
-                        </li>
+						<li class="nav-item<?php echo ($menuActive === 'configs') ? ' active' : '' ;?>">
+							<a class="nav-link" href="<?php echo site_url('configs/update/1');?>">Configurações</a>
+						</li>
                         <li class="nav-item dropdown<?php echo ($menuActive === 'posts') ? ' active' : '' ;?>">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarPosts" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Notícias
@@ -44,6 +44,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="<?php echo site_url('contacts/index');?>">Contatos</a>
                         </li>
+						<li class="nav-item">
+							<a class="nav-link" href="<?php echo base_url();?>">Visitar Site</a>
+						</li>
                     </ul>
                     <div class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
                         Olá <?php echo ellipsize($login->name, 15);?>.

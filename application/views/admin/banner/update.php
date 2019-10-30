@@ -14,24 +14,27 @@
                     </ul>
                 </div>
             <?php endif;?>
-            <form method="post" action="<?php echo site_url('banners/update/'.$item->id);?>" enctype="multipart/form-data">
-
+			<?php $action = 'banners/update/'.$item->id;?>
+            <form method="post" action="<?php echo site_url($action);?>" enctype="multipart/form-data">
                 <div class="form-group">
                     <?php if ($item->getImageUrl()):?>
-                    <figure class="figure">
-                        <img src="<?php echo $item->getImageUrl();?>" alt="Imagem de Capa" class="figure-img img-fluid rounded" />
-                        <figcaption class="figure-caption">Imagem do Banner.</figcaption>
-                    </figure>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="1" name="image_remove" id="image_remove">
-                        <label class="form-check-label" for="image_remove">
-                            Apagar Imagem
-                        </label>
-                    </div>
+						<div class="card text-center" style="width: 18em">
+							<img class="card-img" src="<?php echo $item->getImageUrl();?>" alt="Imagem de Capa">
+							<div class="card-footer">
+								<?php $imagecut = sprintf('images/cut/?fileName=%s&height=%s&width=%s&returnTo=%s', $item->getImageUrl(false), $item->getImageHeight(), $item->getImageWidth(), $action);?>
+								<a href="<?php echo site_url($imagecut);?>" class="btn btn-primary">Recortar</a>
+							</div>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value="1" name="image_remove" id="image_remove">
+							<label class="form-check-label" for="image_remove">
+								Apagar Imagem (clique no botão salvar)
+							</label>
+						</div>
                     <?php else:?>
-                    <label for="image">
-                        Imagem
-                    </label>
+						<label for="image">
+							Imagem
+						</label>
                     <?php endif;?>
                     <input type="file" class="form-control" name="image" id="image" aria-describedby="imageHelp">
                     <?php if(isset($errors['image'])):?>
