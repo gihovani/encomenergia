@@ -9,9 +9,6 @@
 				<?php if(isset($description) && !empty($description)):?>
 					<h3><?php echo $description;?></h3>
 				<?php endif;?>
-				<?php if(isset($image) && !empty($image)):?>
-					<img src="<?php echo $image;?>" alt="<?php echo $title;?>" class="img-responsive img-thumbnail">
-				<?php endif;?>
 				<?php if(isset($content) && !empty($content)):?>
 					<?php echo $content;?>
 				<?php endif;?>
