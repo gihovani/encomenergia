@@ -21,6 +21,7 @@
                     <select name="type" id="type" class="custom-select">
                         <option value="post"<?php echo ($item->type === 'post' ? ' selected':'');?>>Notícia</option>
                         <option value="page"<?php echo ($item->type === 'page' ? ' selected':'');?>>Página</option>
+						<option value="service"<?php echo ($item->type === 'service' ? ' selected':'');?>>Serviço</option>
                     </select>
                 </div>
 
@@ -56,6 +57,27 @@
                     <?php endif;?>
 
                 </div>
+
+				<div class="form-group">
+					<label for="slug">Slug*</label>
+					<input type="text"
+						   class="form-control"
+						   id="slug"
+						   name="slug"
+						   aria-describedby="slugHelp"
+						   placeholder="Slug"
+						   maxlength="70"
+						   value="<?php echo set_value('slug', $item->slug);?>">
+					<?php if(isset($errors['slug'])):?>
+						<small id="slugHelp" class="form-text text-warning">
+							<?php echo $errors['slug'];?>
+						</small>
+					<?php else:?>
+						<small id="slugHelp" class="form-text text-muted">
+							Digite a url amigável (sem acentos e espaços).
+						</small>
+					<?php endif;?>
+				</div>
 
                 <div class="form-group">
                     <label for="title">Título*</label>

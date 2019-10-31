@@ -16,7 +16,7 @@ class Posts extends MY_Controller
 	{
 		$filter = [];
 		$count = $this->post_model->count($filter);
-		$offset = intval($this->input->get('cur_page'));
+		$offset = intval($offset);
 		if ($offset < 0) {
 			$offset = 0;
 		}

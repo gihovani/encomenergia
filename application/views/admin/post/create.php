@@ -20,6 +20,7 @@
                     <select name="type" id="type" class="custom-select">
                         <option value="post" selected>Notícia</option>
                         <option value="page">Página</option>
+						<option value="service">Serviço</option>
                     </select>
                 </div>
 
@@ -37,26 +38,47 @@
                     <?php endif;?>
                 </div>
 
-                <div class="form-group">
-                    <label for="title">Título*</label>
-                    <input type="text"
-                           class="form-control"
-                           id="title"
-                           name="title"
-                           aria-describedby="titleHelp"
-                           placeholder="Título"
-                           maxlength="70"
-                           value="<?php echo set_value('title');?>">
-                    <?php if(isset($errors['title'])):?>
-                        <small id="titleHelp" class="form-text text-warning">
-                            <?php echo $errors['title'];?>
-                        </small>
-                    <?php else:?>
-                        <small id="titleHelp" class="form-text text-muted">
-                            Digite o Título com no máximo 70 caracteres.
-                        </small>
-                    <?php endif;?>
-                </div>
+				<div class="form-group">
+					<label for="slug">Slug*</label>
+					<input type="text"
+						   class="form-control"
+						   id="slug"
+						   name="slug"
+						   aria-describedby="slugHelp"
+						   placeholder="Slug"
+						   maxlength="70"
+						   value="<?php echo set_value('slug');?>">
+					<?php if(isset($errors['slug'])):?>
+						<small id="slugHelp" class="form-text text-warning">
+							<?php echo $errors['slug'];?>
+						</small>
+					<?php else:?>
+						<small id="slugHelp" class="form-text text-muted">
+							Digite a url amigável (sem acentos e espaços).
+						</small>
+					<?php endif;?>
+				</div>
+
+				<div class="form-group">
+					<label for="title">Título*</label>
+					<input type="text"
+						   class="form-control"
+						   id="title"
+						   name="title"
+						   aria-describedby="titleHelp"
+						   placeholder="Título"
+						   maxlength="70"
+						   value="<?php echo set_value('title');?>">
+					<?php if(isset($errors['title'])):?>
+						<small id="titleHelp" class="form-text text-warning">
+							<?php echo $errors['title'];?>
+						</small>
+					<?php else:?>
+						<small id="titleHelp" class="form-text text-muted">
+							Digite o Título com no máximo 70 caracteres.
+						</small>
+					<?php endif;?>
+				</div>
 
                 <div class="form-group">
                     <label for="description">Descrição*</label>
