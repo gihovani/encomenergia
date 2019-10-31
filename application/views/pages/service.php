@@ -2,7 +2,7 @@
 	<div class="container">
 		<hr>
 		<div class="row">
-			<section class="col-8 section">
+			<section class="col-md-8 section">
 				<?php if(isset($title) && !empty($title)):?>
 					<h2 class="section-title section-title-services mt-n4"><?php echo $title;?></h2>
 				<?php endif;?>
@@ -13,7 +13,7 @@
 					<?php echo $content;?>
 				<?php endif;?>
 			</section>
-			<section class="col-4">
+			<section class="col-md-4">
 				<ul>
 					<li><a href="">teste</a></li>
 				</ul>
