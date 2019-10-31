@@ -8,17 +8,12 @@ Aplicação precisa dos serviços:
 
 Passos para instalar a aplicação:
 
-- Instalar Dependências do projeto
-```
-composer install
-```
-
 - Editar arquivo:
     - application/config/database.php
 
-- Rodar as migrações para incluir os dados no banco de dados:    
+- Instalar Dependências do projeto
 ```
-php index.php migrate index
+./install.sh
 ```
 
 # Autores 
