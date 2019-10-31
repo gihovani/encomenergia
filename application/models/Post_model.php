@@ -21,6 +21,7 @@ class Post_model extends MY_Model
 	public $content = '';
 	public $styles = '';
 	public $scripts = '';
+	public $active = 0;
 	public $created_at = '';
 	public $updated_at = '';
 
@@ -31,7 +32,6 @@ class Post_model extends MY_Model
 		if (empty($slug)) {
 			$slug = $title;
 		}
-		$author = $this->input->post('author');
 
 		$this->slug = url_title(convert_accented_characters($slug), 'dash', true);
 		$this->title = $title;
@@ -39,10 +39,11 @@ class Post_model extends MY_Model
 		$this->image = $this->input->post('image');
 		$this->description = $this->input->post('description');
 		$this->keywords = $this->input->post('keywords');
-		$this->author = ($author) ? $author : 'Encom Energia';
+		$this->author = $this->input->post('author');
 		$this->content = $this->input->post('content');
 		$this->styles = $this->input->post('styles');
 		$this->scripts = $this->input->post('scripts');
+		$this->active = $this->input->post('active');
 	}
 
 	public function update($id)
@@ -51,9 +52,20 @@ class Post_model extends MY_Model
 		$removeImage = $this->input->post('image_remove');
 		if (empty($this->image) && !$removeImage) {
 			$oldValues = $this->item($id);
-			$_POST['image'] = $oldValues->image;
+			$this->image = $oldValues->image;
 		}
-		return parent::update($id);
+		if ($this->timestamps) {
+			$this->updated_at = CURRENT_DATETIME;
+		}
+
+		unset($this->id, $this->created_at);
+		if (!isset($_POST['styles'])) {
+			unset($this->styles);
+		}
+		if (!isset($_POST['scripts'])) {
+			unset($this->scripts);
+		}
+		return $this->db->update($this->table, $this, [$this->primaryKey => $id]);
 	}
 
 	public function getType()

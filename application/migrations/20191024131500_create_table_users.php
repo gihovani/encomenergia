@@ -43,6 +43,10 @@ class Migration_Create_table_users extends CI_Migration
 				'type' => 'VARCHAR',
 				'constraint' => '50',
 			],
+			'admin' => [
+				'type' => 'TINYINT',
+				'DEFAULT' => 0
+			],
 			'created_at' => [
 				'type' => 'timestamp',
 				'null' => TRUE,
@@ -62,6 +66,7 @@ class Migration_Create_table_users extends CI_Migration
 			'name' => 'Gihovani Filipp',
 			'login' => 'gihovani',
 			'password' => '12456',
+			'admin' => 1
 		];
 		$this->user_model->insert();
 	}

@@ -86,11 +86,11 @@ class MY_Controller extends CI_Controller
 		if ($this->isAdmin) {
 			$this->setData('menuActive', $this->router->class);
 			$this->setData('login', $this->session->userdata('login'));
-			return $this->template(['admin/navbar', $page]);
+			return $this->template(['admin/navbar', 'templates/message', $page]);
 		}
 
 		if ($this->router->class === 'pages') {
-			return $this->template(['pages/top', $page, 'pages/bottom']);
+			return $this->template(['pages/top', 'templates/message', $page, 'pages/bottom']);
 		}
 
 		return $this->template([$page]);
@@ -110,7 +110,6 @@ class MY_Controller extends CI_Controller
 		$this->setData('js', $this->staticFiles['js']);
 		$this->setData('css', $this->staticFiles['css']);
 		$this->load->view('templates/header', $this->data);
-		$this->load->view('templates/message', $this->data);
 		foreach ($templateFiles as $view) {
 			$this->load->view($view, $this->data);
 		}

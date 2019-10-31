@@ -19,26 +19,66 @@ $config = [
         ['field' => 'login', 'label' => 'Login', 'rules' => 'required|max_length[50]'],
         ['field' => 'password', 'label' => 'Senha', 'rules' => 'required|max_length[50]']
     ],
-    'posts/create' => [
-        ['field' => 'type', 'label' => 'Tipo', 'rules' => 'trim|required|callback_doUpload'],
-        ['field' => 'title', 'label' => 'Título', 'rules' => 'trim|required|max_length[70]|is_unique[posts.title]'],
-        ['field' => 'description', 'label' => 'Descrição', 'rules' => 'trim|required|max_length[160]'],
-        ['field' => 'keywords', 'label' => 'Palavras Chave', 'rules' => 'trim|max_length[100]'],
-        ['field' => 'author', 'label' => 'Autor', 'rules' => 'trim|max_length[50]'],
-        ['field' => 'content', 'label' => 'Conteúdo', 'rules' => 'trim'],
-        ['field' => 'styles', 'label' => 'Estilo CSS', 'rules' => 'trim'],
-        ['field' => 'scripts', 'label' => 'Script JS', 'rules' => 'trim']
-    ],
-    'posts/update' => [
+	'cms/create' => [
 		['field' => 'type', 'label' => 'Tipo', 'rules' => 'trim|required|callback_doUpload'],
+		['field' => 'slug', 'label' => 'Slug', 'rules' => 'trim|required|max_length[70]|is_unique[posts.slug]'],
 		['field' => 'title', 'label' => 'Título', 'rules' => 'trim|required|max_length[70]'],
 		['field' => 'description', 'label' => 'Descrição', 'rules' => 'trim|required|max_length[160]'],
 		['field' => 'keywords', 'label' => 'Palavras Chave', 'rules' => 'trim|max_length[100]'],
 		['field' => 'author', 'label' => 'Autor', 'rules' => 'trim|max_length[50]'],
 		['field' => 'content', 'label' => 'Conteúdo', 'rules' => 'trim'],
 		['field' => 'styles', 'label' => 'Estilo CSS', 'rules' => 'trim'],
-		['field' => 'scripts', 'label' => 'Script JS', 'rules' => 'trim']
-    ],
+		['field' => 'scripts', 'label' => 'Script JS', 'rules' => 'trim'],
+		['field' => 'active', 'label' => 'Ativo', 'rules' => 'trim']
+	],
+	'cms/update' => [
+		['field' => 'type', 'label' => 'Tipo', 'rules' => 'trim|required|callback_doUpload'],
+		['field' => 'slug', 'label' => 'Slug', 'rules' => 'trim|required|max_length[70]'],
+		['field' => 'title', 'label' => 'Título', 'rules' => 'trim|required|max_length[70]'],
+		['field' => 'description', 'label' => 'Descrição', 'rules' => 'trim|required|max_length[160]'],
+		['field' => 'keywords', 'label' => 'Palavras Chave', 'rules' => 'trim|max_length[100]'],
+		['field' => 'author', 'label' => 'Autor', 'rules' => 'trim|max_length[50]'],
+		['field' => 'content', 'label' => 'Conteúdo', 'rules' => 'trim'],
+		['field' => 'styles', 'label' => 'Estilo CSS', 'rules' => 'trim'],
+		['field' => 'scripts', 'label' => 'Script JS', 'rules' => 'trim'],
+		['field' => 'active', 'label' => 'Ativo', 'rules' => 'trim']
+	],
+	'posts/create' => [
+		['field' => 'type', 'label' => 'Tipo', 'rules' => 'trim|required|callback_doUpload'],
+		['field' => 'title', 'label' => 'Título', 'rules' => 'trim|required|max_length[70]|is_unique[posts.title]'],
+		['field' => 'description', 'label' => 'Descrição', 'rules' => 'trim|required|max_length[160]'],
+		['field' => 'keywords', 'label' => 'Palavras Chave', 'rules' => 'trim|max_length[100]'],
+		['field' => 'author', 'label' => 'Autor', 'rules' => 'trim|max_length[50]'],
+		['field' => 'content', 'label' => 'Conteúdo', 'rules' => 'trim'],
+		['field' => 'active', 'label' => 'Ativo', 'rules' => 'trim']
+	],
+	'posts/update' => [
+		['field' => 'type', 'label' => 'Tipo', 'rules' => 'trim|required|callback_doUpload'],
+		['field' => 'title', 'label' => 'Título', 'rules' => 'trim|required|max_length[70]'],
+		['field' => 'description', 'label' => 'Descrição', 'rules' => 'trim|required|max_length[160]'],
+		['field' => 'keywords', 'label' => 'Palavras Chave', 'rules' => 'trim|max_length[100]'],
+		['field' => 'author', 'label' => 'Autor', 'rules' => 'trim|max_length[50]'],
+		['field' => 'content', 'label' => 'Conteúdo', 'rules' => 'trim'],
+		['field' => 'active', 'label' => 'Ativo', 'rules' => 'trim']
+	],
+	'services/create' => [
+		['field' => 'type', 'label' => 'Tipo', 'rules' => 'trim|required|callback_doUpload'],
+		['field' => 'title', 'label' => 'Título', 'rules' => 'trim|required|max_length[70]|is_unique[posts.title]'],
+		['field' => 'description', 'label' => 'Descrição', 'rules' => 'trim|required|max_length[160]'],
+		['field' => 'keywords', 'label' => 'Palavras Chave', 'rules' => 'trim|max_length[100]'],
+		['field' => 'author', 'label' => 'Autor', 'rules' => 'trim|max_length[50]'],
+		['field' => 'content', 'label' => 'Conteúdo', 'rules' => 'trim'],
+		['field' => 'active', 'label' => 'Ativo', 'rules' => 'trim']
+	],
+	'services/update' => [
+		['field' => 'type', 'label' => 'Tipo', 'rules' => 'trim|required|callback_doUpload'],
+		['field' => 'title', 'label' => 'Título', 'rules' => 'trim|required|max_length[70]'],
+		['field' => 'description', 'label' => 'Descrição', 'rules' => 'trim|required|max_length[160]'],
+		['field' => 'keywords', 'label' => 'Palavras Chave', 'rules' => 'trim|max_length[100]'],
+		['field' => 'author', 'label' => 'Autor', 'rules' => 'trim|max_length[50]'],
+		['field' => 'content', 'label' => 'Conteúdo', 'rules' => 'trim'],
+		['field' => 'active', 'label' => 'Ativo', 'rules' => 'trim']
+	],
     'banners/create' => [
         ['field' => 'title', 'label' => 'Título', 'rules' => 'trim|max_length[70]|required|callback_doUpload'],
         ['field' => 'link', 'label' => 'Link', 'rules' => 'trim|max_length[200]'],

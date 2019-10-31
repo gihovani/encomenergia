@@ -3,7 +3,7 @@
         <div class="col">
             <div class="table-responsive-lg">
                 <table class="table table-striped">
-                    <caption>Lista de Notícias: (<?php echo isset($count) ? intval($count) : 0 ?>)</caption>
+                    <caption>Lista de Serviços: (<?php echo isset($count) ? intval($count) : 0 ?>)</caption>
                     <thead>
                     <tr>
                         <th scope="col">#</th>
@@ -20,13 +20,13 @@
                     <tr>
                         <th scope="row"><?php echo $item->id;?></th>
                         <td><?php echo date('d/m/Y H:i:s', strtotime($item->created_at));?></td>
-						<td><?php if ($item->getImageUrl()):?>
+                        <td><?php if ($item->getImageUrl()):?>
 							<img src="<?php echo $item->getImageUrl();?>" class="img-responsive" style="max-width: 200px" />
 						<?php endif;?></td>
-                        <td><?php echo $item->title;?></td>
+						<td><?php echo $item->title;?></td>
 						<td><?php echo ($item->active) ? 'Sim' : 'Não';?></td>
                         <td>
-                            <a href="<?php echo site_url('posts/update/'.$item->id);?>">Editar</a>
+                            <a href="<?php echo site_url('services/update/'.$item->id);?>">Editar</a>
                         </td>
                     </tr>
                     <?php endforeach;?>

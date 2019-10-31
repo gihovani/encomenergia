@@ -72,6 +72,17 @@
                         </small>
                     <?php endif;?>
                 </div>
+
+				<?php if($login->admin):?>
+					<div class="form-group">
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value="1" name="admin" id="admin" <?php echo set_checkbox('admin', '1', ($item->admin > 0));?>>
+							<label class="form-check-label" for="active">
+								Admin
+							</label>
+						</div>
+					</div>
+				<?php endif;?>
                 <button type="submit" class="btn btn-block btn-primary">Salvar</button>
             </form>
         </div>

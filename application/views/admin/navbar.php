@@ -11,27 +11,35 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav">
-						<li class="nav-item<?php echo ($menuActive === 'configs') ? ' active' : '' ;?>">
-							<a class="nav-link" href="<?php echo site_url('configs/update/1');?>">Configurações</a>
+						<li class="nav-item dropdown<?php echo ($menuActive === 'banners') ? ' active' : '' ;?>">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarBanners" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Banners
+							</a>
+							<div class="dropdown-menu" aria-labelledby="navbarBanners">
+								<a class="dropdown-item" href="<?php echo site_url('banners/create');?>">Novo Banner</a>
+								<a class="dropdown-item" href="<?php echo site_url('banners/index');?>">Listar Todos</a>
+							</div>
 						</li>
-                        <li class="nav-item dropdown<?php echo ($menuActive === 'posts') ? ' active' : '' ;?>">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarPosts" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Notícias
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarPosts">
-                                <a class="dropdown-item" href="<?php echo site_url('posts/create');?>">Nova Notícia</a>
-                                <a class="dropdown-item" href="<?php echo site_url('posts/index');?>">Listar Todas</a>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown<?php echo ($menuActive === 'banners') ? ' active' : '' ;?>">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarBanners" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Banners
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarBanners">
-                                <a class="dropdown-item" href="<?php echo site_url('banners/create');?>">Novo Banner</a>
-                                <a class="dropdown-item" href="<?php echo site_url('banners/index');?>">Listar Todos</a>
-                            </div>
-                        </li>
+
+						<li class="nav-item dropdown<?php echo ($menuActive === 'posts') ? ' active' : '' ;?>">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarPosts" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Notícias
+							</a>
+							<div class="dropdown-menu" aria-labelledby="navbarPosts">
+								<a class="dropdown-item" href="<?php echo site_url('posts/create');?>">Nova Notícia</a>
+								<a class="dropdown-item" href="<?php echo site_url('posts/index');?>">Listar Todas</a>
+							</div>
+						</li>
+						<li class="nav-item dropdown<?php echo ($menuActive === 'services') ? ' active' : '' ;?>">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarPosts" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Serviços
+							</a>
+							<div class="dropdown-menu" aria-labelledby="navbarPosts">
+								<a class="dropdown-item" href="<?php echo site_url('services/create');?>">Novo Serviço</a>
+								<a class="dropdown-item" href="<?php echo site_url('services/index');?>">Listar Todos</a>
+							</div>
+						</li>
+
                         <li class="nav-item dropdown<?php echo ($menuActive === 'users') ? ' active' : '' ;?>">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarUsers" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Usuários
@@ -41,11 +49,28 @@
                                 <a class="dropdown-item" href="<?php echo site_url('users/index');?>">Listar Todos</a>
                             </div>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="<?php echo site_url('contacts/index');?>">Contatos</a>
-                        </li>
-						<li class="nav-item">
-							<a class="nav-link" href="<?php echo base_url();?>">Visitar Site</a>
+
+						<?php if($login->admin):?>
+							<li class="nav-item dropdown<?php echo ($menuActive === 'cms') ? ' active' : '' ;?>">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarPosts" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									CMS
+								</a>
+								<div class="dropdown-menu" aria-labelledby="navbarPosts">
+									<a class="dropdown-item" href="<?php echo site_url('cms/create');?>">Nova Página</a>
+									<a class="dropdown-item" href="<?php echo site_url('cms/index');?>">Listar Todas</a>
+								</div>
+							</li>
+						<?php endif;?>
+
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarUsers" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Mais
+							</a>
+							<div class="dropdown-menu" aria-labelledby="navbarUsers">
+								<a class="dropdown-item" href="<?php echo site_url('configs/update/1');?>">Configurações</a>
+								<a class="dropdown-item" href="<?php echo site_url('contacts/index');?>">Contatos</a>
+								<a class="dropdown-item" href="<?php echo base_url();?>">Visitar Site</a>
+							</div>
 						</li>
                     </ul>
                     <div class="navbar-nav flex-row ml-md-auto d-none d-md-flex">

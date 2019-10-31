@@ -14,9 +14,9 @@
                     </ul>
                 </div>
             <?php endif;?>
-			<?php $action = 'posts/update/'.$item->id;?>
+			<?php $action = 'services/update/'.$item->id;?>
             <form method="post" action="<?php echo site_url($action);?>" enctype="multipart/form-data">
-				<input type="hidden" name="type" value="post">
+				<input type="hidden" name="type" value="service">
 
                 <div class="form-group">
                     <?php if ($item->getImageUrl()):?>
@@ -45,12 +45,11 @@
                         </small>
                     <?php else:?>
                         <small id="imageHelp" class="form-text text-muted">
-                            Selecione uma imagem de capa para a notícia.
+                            Selecione uma imagem de capa para o serviço.
                         </small>
                     <?php endif;?>
 
                 </div>
-
 
                 <div class="form-group">
                     <label for="title">Título*</label>
@@ -162,7 +161,6 @@
 						</label>
 					</div>
 				</div>
-
                 <button type="submit" class="btn btn-block btn-primary">Salvar</button>
             </form>
         </div>

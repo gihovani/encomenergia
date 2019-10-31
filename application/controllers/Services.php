@@ -4,7 +4,7 @@ defined('BASEPATH') || exit('No direct script access allowed');
 /**
  * @property Post_model $post_model
  */
-class Posts extends MY_Controller
+class Services extends MY_Controller
 {
 	public function __construct($isAdmin = true)
 	{
@@ -14,7 +14,7 @@ class Posts extends MY_Controller
 
 	public function index($offset = 0)
 	{
-		$filter = ['type' => 'post'];
+		$filter = ['type' => 'service'];
 		$count = $this->post_model->count($filter);
 		$offset = intval($offset);
 		if ($offset < 0) {
@@ -24,18 +24,18 @@ class Posts extends MY_Controller
 			'items' => $this->post_model->items($filter, ITEMS_PER_PAGE, $offset, 'Post_model'),
 			'count' => $count,
 			'pagination' => $this->pagination->initialize([
-				'base_url' => site_url('posts/index'),
-				'total_rows' => $count,
+				'base_url' => site_url('services/index'),
+				'total_rows' => $count
 			])
 		];
-		$this->html('admin/post/index', $data);
+		$this->html('admin/service/index', $data);
 	}
 
 	public function create()
 	{
 		if ($this->form_validation->run()) {
 			$this->post_model->insert();
-			return $this->redirect('Notícia Criada Com Sucesso!', 'posts/index');
+			return $this->redirect('Serviço Criado Com Sucesso!', 'services/index');
 		}
 
 		$data = [
@@ -45,18 +45,18 @@ class Posts extends MY_Controller
 			->setStaticFile('assets/ckeditor/ckeditor.js')
 			->setStaticFile('assets/ckeditor/ckfinder.js')
 			->setStaticFile('assets/js/ckeditor.js')
-			->html('admin/post/create', $data);
+			->html('admin/service/create', $data);
 	}
 
 	public function update($id = 0)
 	{
 		$item = $this->post_model->item($id, 'id', 'Post_model');
 		if (!$item) {
-			return $this->redirect('Notícia Não Encontrada!', 'posts/index');
+			return $this->redirect('Serviço Não Encontrado!', 'services/index');
 		}
 		if ($this->form_validation->run()) {
 			$this->post_model->update($id);
-			return $this->redirect('Notícia Atualizada Com Sucesso!', 'posts/index');
+			return $this->redirect('Serviço Atualizado Com Sucesso!', 'services/index');
 		}
 
 		$data = [
@@ -67,17 +67,17 @@ class Posts extends MY_Controller
 			->setStaticFile('assets/ckeditor/ckeditor.js')
 			->setStaticFile('assets/ckeditor/ckfinder.js')
 			->setStaticFile('assets/js/ckeditor.js')
-			->html('admin/post/update', $data);
+			->html('admin/service/update', $data);
 	}
 
 	public function delete($id = 0)
 	{
 		$item = $this->post_model->item($id, 'id', 'Post_model');
 		if (!$item) {
-			return $this->redirect('Notícia Não Encontrada!', 'posts/index');
+			return $this->redirect('Serviço Não Encontrado!', 'services/index');
 		}
 
 		$id = $this->post_model->delete($id);
-		$this->redirect(($id ? 'Notícia Removida Com Sucesso!' : 'Notícia Não Pode Ser Removida!'), 'posts/index');
+		$this->redirect(($id ? 'Serviço Removido Com Sucesso!' : 'Serviço Não Pode Ser Removido!'), 'services/index');
 	}
 }

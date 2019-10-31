@@ -14,9 +14,16 @@
                     </ul>
                 </div>
             <?php endif;?>
-			<?php $action = 'posts/update/'.$item->id;?>
+			<?php $action = 'cms/update/'.$item->id;?>
             <form method="post" action="<?php echo site_url($action);?>" enctype="multipart/form-data">
-				<input type="hidden" name="type" value="post">
+                <div class="form-group">
+                    <label for="type">Tipo*</label>
+                    <select name="type" id="type" class="custom-select">
+                        <option value="post"<?php echo ($item->type === 'post' ? ' selected':'');?>>Notícia</option>
+                        <option value="page"<?php echo ($item->type === 'page' ? ' selected':'');?>>Página</option>
+						<option value="service"<?php echo ($item->type === 'service' ? ' selected':'');?>>Serviço</option>
+                    </select>
+                </div>
 
                 <div class="form-group">
                     <?php if ($item->getImageUrl()):?>
@@ -51,6 +58,26 @@
 
                 </div>
 
+				<div class="form-group">
+					<label for="slug">Slug*</label>
+					<input type="text"
+						   class="form-control"
+						   id="slug"
+						   name="slug"
+						   aria-describedby="slugHelp"
+						   placeholder="Slug"
+						   maxlength="70"
+						   value="<?php echo set_value('slug', $item->slug);?>">
+					<?php if(isset($errors['slug'])):?>
+						<small id="slugHelp" class="form-text text-warning">
+							<?php echo $errors['slug'];?>
+						</small>
+					<?php else:?>
+						<small id="slugHelp" class="form-text text-muted">
+							Digite a url amigável (sem acentos e espaços).
+						</small>
+					<?php endif;?>
+				</div>
 
                 <div class="form-group">
                     <label for="title">Título*</label>
@@ -138,7 +165,8 @@
 
                 <div class="form-group">
                     <label for="content">Conteúdo</label>
-                    <textarea class="ckeditor"
+                    <textarea class="form-control"
+							  rows="20"
                               id="content"
                               name="content"
                               aria-describedby="contentHelp"
@@ -154,6 +182,42 @@
                     <?php endif;?>
                 </div>
 
+                <div class="form-group">
+                    <label for="content">Estilo/CSS</label>
+                    <textarea class="form-control"
+                              id="styles"
+                              name="styles"
+                              aria-describedby="stylesHelp"
+                              placeholder="Estilo/CSS"><?php echo set_value('styles', $item->styles);?></textarea>
+                    <?php if(isset($errors['styles'])):?>
+                        <small id="stylesHelp" class="form-text text-warning">
+                            <?php echo $errors['styles'];?>
+                        </small>
+                    <?php else:?>
+                        <small id="stylesHelp" class="form-text text-muted">
+                            Digite o conteúdo do estilo (css) dá página.
+                        </small>
+                    <?php endif;?>
+                </div>
+
+                <div class="form-group">
+                    <label for="content">Script/JS</label>
+                    <textarea class="form-control"
+                              id="scripts"
+                              name="scripts"
+                              aria-describedby="scriptsHelp"
+                              placeholder="Script/JS"><?php echo set_value('scripts', $item->scripts);?></textarea>
+                    <?php if(isset($errors['scripts'])):?>
+                        <small id="scriptsHelp" class="form-text text-warning">
+                            <?php echo $errors['scripts'];?>
+                        </small>
+                    <?php else:?>
+                        <small id="stylesHelp" class="form-text text-muted">
+                            Digite o conteúdo do javascript (js) dá página.
+                        </small>
+                    <?php endif;?>
+                </div>
+
 				<div class="form-group">
 					<div class="form-check">
 						<input class="form-check-input" type="checkbox" value="1" name="active" id="active" <?php echo set_checkbox('active', '1', ($item->active > 0));?>>
@@ -162,7 +226,6 @@
 						</label>
 					</div>
 				</div>
-
                 <button type="submit" class="btn btn-block btn-primary">Salvar</button>
             </form>
         </div>
