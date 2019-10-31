@@ -50,6 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'pages/view';
+$route['sitemap\.xml'] = 'sitemap/index';
 $route['files/(:any)'] = 'pages/files/$1';
 $route['(:any)'] = 'pages/view/$1';
 
