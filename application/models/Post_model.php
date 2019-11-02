@@ -43,7 +43,7 @@ class Post_model extends MY_Model
 		$this->content = $this->input->post('content');
 		$this->styles = $this->input->post('styles');
 		$this->scripts = $this->input->post('scripts');
-		$this->active = $this->input->post('active');
+		$this->active = ($this->input->post('active') ? 1 : 0);
 	}
 
 	public function update($id)
