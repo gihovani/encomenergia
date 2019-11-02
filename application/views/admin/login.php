@@ -1,6 +1,6 @@
 <div class="container">
-    <div class="row justify-content-center mt-lg-5">
-        <div class="col-6">
+    <div class="row justify-content-center mt-5 pt-5">
+        <section class="col-6 section-login">
             <?php if(isset($errors) && $errors):?>
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
                 <strong>Login ou Senha incorretos.</strong><br/>
@@ -35,6 +35,6 @@
                 </div>
                 <button type="submit" class="btn btn-block btn-primary">Entrar</button>
             </form>
-        </div>
+        </section>
     </div>
 </div>

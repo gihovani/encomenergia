@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="row mt-lg-5">
+    <div class="row pt-5 pb-5">
         <div class="col">
             <?php if(isset($errors) && $errors):?>
             <div class="alert alert-warning alert-dismissible fade show" role="alert">

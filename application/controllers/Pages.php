@@ -80,9 +80,6 @@ class Pages extends MY_Controller
 		if (empty($data)) {
 			show_404();
 		}
-		$this
-			->setStaticFile('assets/css/style.css')
-			->setStaticFile('assets/js/default.js');
 
 		if ($page === 'home') {
 			$this

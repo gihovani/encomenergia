@@ -83,14 +83,18 @@ class MY_Controller extends CI_Controller
 		$this->data = $data;
 		$this->setData('message', $this->session->flashdata('message'));
 
+		if ($this->router->class === 'pages') {
+			$this
+				->setStaticFile('assets/css/style.css')
+				->setStaticFile('assets/js/default.js');
+			return $this->template(['pages/top', 'templates/message', $page, 'pages/bottom']);
+		}
+
+		$this->setStaticFile('assets/css/admin.css');
 		if ($this->isAdmin) {
 			$this->setData('menuActive', $this->router->class);
 			$this->setData('login', $this->session->userdata('login'));
 			return $this->template(['admin/navbar', 'templates/message', $page]);
-		}
-
-		if ($this->router->class === 'pages') {
-			return $this->template(['pages/top', 'templates/message', $page, 'pages/bottom']);
 		}
 
 		return $this->template([$page]);
