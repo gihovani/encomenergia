@@ -1,6 +1,6 @@
 <?php
 
-$config['full_tag_open'] = '<ul class="pagination">';
+$config['full_tag_open'] = '<ul class="pagination justify-content-center">';
 $config['full_tag_close'] = '</ul>';
 $config['attributes'] = ['class' => 'page-link'];
 $config['first_link'] = 'Primeira';

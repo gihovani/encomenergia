@@ -1,4 +1,10 @@
 /*@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap');*/
+@media print {
+	header, footer {
+		display: none;
+		visibility: hidden;
+	}
+}
 
 body {
     background: #FFFFFF;
@@ -36,6 +42,59 @@ section.section .section-title {
     font-weight: 400;
     font-size: 3.3rem;
     margin-bottom: 15px;
+}
+h1, h2, .page-link {
+	color: #901A21;
+}
+
+h1 {
+	font-size: 3.5rem;
+}
+
+h2 {
+	font-size: 3.3rem;
+}
+
+.page-link:hover {
+	color: #490f0f;
+}
+
+.page-item.active .page-link {
+	background-color: #901A21;
+	border-color: #901A21;
+}
+.btn-primary {
+	color: #fff;
+	background-color: #901A21;
+	border-color: #901A21;
+}
+
+.btn-primary:hover {
+	color: #fff;
+	background-color: #490f0f;
+	border-color: #7c191a;
+}
+
+.btn-primary:focus, .btn-primary.focus {
+	box-shadow: 0 0 0 0.2rem rgba(111, 22, 23, 0.5);
+}
+
+.btn-primary.disabled, .btn-primary:disabled {
+	color: #fff;
+	background-color: #901A21;
+	border-color: #901A21;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
+.show > .btn-primary.dropdown-toggle {
+	color: #fff;
+	background-color: #7c191a;
+	border-color: #490f0f;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus,
+.show > .btn-primary.dropdown-toggle:focus {
+	box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
 }
 
 section.section .section-title.section-title-services {

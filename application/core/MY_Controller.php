@@ -49,17 +49,17 @@ class MY_Controller extends CI_Controller
 		redirect($redirectUrl);
 	}
 
-	public function doUpload()
+	public function doUpload($field = 'image')
 	{
-		if (!(isset($_FILES['image']) && !empty($_FILES['image']['name']))) {
+		if (!(isset($_FILES[$field]) && !empty($_FILES[$field]['name']))) {
 			return true;
 		}
 
-		if (!$this->upload->do_upload('image')) {
-			$this->form_validation->set_message('do_upload', 'The image is not valid: (' . $this->upload->display_errors('', '') . ')');
+		if (!$this->upload->do_upload($field)) {
+			$this->form_validation->set_message('do_upload', 'The '.$field.' is not valid: (' . $this->upload->display_errors('', '') . ')');
 			return false;
 		} else {
-			$_POST['image'] = $this->upload->data('file_name');
+			$_POST[$field] = $this->upload->data('file_name');
 			return true;
 		}
 	}

@@ -62,7 +62,7 @@ class Pages extends MY_Controller
 
 	protected function getListPage($type)
 	{
-		$filter = ['type' => $type];
+		$filter = ['type' => $type, 'active' => 1];
 		$offset = intval($this->input->get('per_page'));
 		$count = $this->post_model->count($filter);
 		$itens = $this->post_model->items($filter, 10, $offset, 'Post_model');
@@ -80,12 +80,15 @@ class Pages extends MY_Controller
 		if (empty($data)) {
 			show_404();
 		}
-
+		$data->image = $data->getImageUrl();
+		$filterLastPosts = ['type' => 'post', 'active' => 1, ['operator' => 'order_by', 'field' => 'id', 'value' => 'desc']];
+		$filterServices = ['type' => 'service', 'active' => 1, ['operator' => 'order_by', 'field' => 'title', 'value' => 'asc']];
 		if ($page === 'home') {
 			$this
 				->setStaticFile('node_modules/slick-carousel/slick/slick.css')
 				->setStaticFile('node_modules/slick-carousel/slick/slick.min.js');
-			$data->posts = $this->post_model->items(['type' => 'post'], 4, 0, 'Post_model');
+			$filter = ['type' => 'post', 'active' => 1, ['operator' => 'order_by', 'field' => 'id', 'value' => 'desc']];
+			$data->posts = $this->post_model->items($filterLastPosts, 4, 0, 'Post_model');
 			$data->banners = $this->banner_model->items([], NULL, NULL, 'Banner_model');
 		} elseif($page === 'noticias') {
 			$itens = $this->getListPage('post');
@@ -96,11 +99,11 @@ class Pages extends MY_Controller
 			$data->posts = $itens['itens'];
 			$data->pagination = $itens['pagination'];
 		} else {
-			$data->image = $data->getImageUrl();
+			$data->posts = $this->post_model->items($filterLastPosts, 2, 0, 'Post_model');
 		}
 
 		$data->config = $this->config_model->item(1);
-		$data->services = $this->post_model->items(['type' => 'service'], NULL, NULL, 'Post_model');
+		$data->services = $this->post_model->items($filterServices, NULL, NULL, 'Post_model');
 		if (isset($data->scripts) && !empty($data->scripts)) {
 			$this->setStaticFile('files/' . $page . '.js');
 		}

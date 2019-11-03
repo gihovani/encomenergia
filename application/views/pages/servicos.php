@@ -2,9 +2,9 @@
 	<div class="container">
 		<hr>
 		<div class="row">
-			<section class="col-12 section">
+			<section class="col-12">
 				<?php if(isset($title) && !empty($title)):?>
-					<h2 class="section-title section-title-services mt-n4"><?php echo $title;?></h2>
+					<h2><?php echo $title;?></h2>
 				<?php endif;?>
 				<?php if(isset($description) && !empty($description)):?>
 					<h3><?php echo $description;?></h3>

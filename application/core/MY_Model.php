@@ -15,7 +15,8 @@ abstract class MY_Model extends CI_Model
     {
         foreach ($filters as $field => $filter) {
             if (is_array($filter) && isset($filter['operator']) && isset($filter['field']) && isset($filter['value'])) {
-                $this->db->$filter['operator']($filter['field'], $filter['value']);
+				$this->db->{$filter['operator']}($filter['field'], $filter['value']);
+
             } else {
                 $this->db->where($field, $filter);
             }
