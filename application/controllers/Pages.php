@@ -87,7 +87,6 @@ class Pages extends MY_Controller
 			$this
 				->setStaticFile('node_modules/slick-carousel/slick/slick.css')
 				->setStaticFile('node_modules/slick-carousel/slick/slick.min.js');
-			$filter = ['type' => 'post', 'active' => 1, ['operator' => 'order_by', 'field' => 'id', 'value' => 'desc']];
 			$data->posts = $this->post_model->items($filterLastPosts, 4, 0, 'Post_model');
 			$data->banners = $this->banner_model->items([], NULL, NULL, 'Banner_model');
 		} elseif($page === 'noticias') {
