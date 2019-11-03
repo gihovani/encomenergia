@@ -39,6 +39,15 @@
 								<a class="dropdown-item" href="<?php echo site_url('services/index');?>">Listar Todos</a>
 							</div>
 						</li>
+						<li class="nav-item dropdown<?php echo ($menuActive === 'pages') ? ' active' : '' ;?>">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarPosts" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Páginas
+							</a>
+							<div class="dropdown-menu" aria-labelledby="navbarPosts">
+								<a class="dropdown-item" href="<?php echo site_url('pages/create');?>">Nova Página</a>
+								<a class="dropdown-item" href="<?php echo site_url('pages/index');?>">Listar Todas</a>
+							</div>
+						</li>
 
                         <li class="nav-item dropdown<?php echo ($menuActive === 'users') ? ' active' : '' ;?>">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarUsers" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

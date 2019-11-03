@@ -3,10 +3,10 @@
 		<div class="container">
 			<div class="header-topbar">
 				<div class="row justify-content-end">
-					<form class="topbar-form form-inline mb-0 mr-4">
+					<form class="topbar-form form-inline mb-0 mr-4" action="<?php echo site_url('buscar');?>">
 						<div class="form-group m-0">
 							<label for="buscar" class="sr-only">Buscar</label>
-							<input type="text" class="form-control  mr-2" id="buscar" placeholder="Buscar">
+							<input type="text" class="form-control  mr-2" id="buscar" placeholder="Buscar" name="termo">
 						</div>
 						<button type="submit" class="btn btn-primary ml-2"></button>
 					</form>

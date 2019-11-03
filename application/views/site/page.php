@@ -8,7 +8,7 @@
 				<?php endif;?>
 				<?php if(isset($image) && !empty($image)):?>
 					<img src="<?php echo $image; ?>" alt="<?php echo $title; ?>"
-						 class="img-responsive img-thumbnail">
+						 class="img-responsive img-thumbnail mb-3">
 				<?php endif;?>
 				<?php if(isset($content) && !empty($content)):?>
 					<?php echo $content;?>

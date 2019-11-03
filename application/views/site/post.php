@@ -31,7 +31,7 @@
 				<?php if (isset($image) && !empty($image)): ?>
 					<span itemprop="image" itemscope itemtype="http://schema.org/ImageObject"> <meta itemprop="url" content="<?php echo $image; ?>"></span>
 					<img src="<?php echo $image; ?>" alt="<?php echo $title; ?>"
-						 class="img-responsive img-thumbnail">
+						 class="img-responsive img-thumbnail mb-3">
 				<?php endif; ?>
 				<?php if (isset($content) && !empty($content)): ?>
 					<article itemprop="articleBody">

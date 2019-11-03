@@ -60,18 +60,27 @@ class Site extends MY_Controller
 		$this->show(json_encode($response, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
 	}
 
-	protected function getListPage($type)
+	protected function getListPage($type = null, $baseUrl = 'noticias')
 	{
-		$filter = ['type' => $type, 'active' => 1];
+		$term = $this->input->get('termo');
+		$filter = ['active' => 1];
+		if ($type) {
+			$filter['type'] = $type;
+		} else {
+			$baseUrl .= '?termo='.$term;
+			$filter[] = ['operator' => 'like', 'field' => 'content', 'value' => $term];
+			$filter[] = ['operator' => 'order_by', 'field' => 'type', 'value' => 'desc'];
+			$filter[] = ['operator' => 'order_by', 'field' => 'id', 'value' => 'desc'];
+		}
 		$offset = intval($this->input->get('per_page'));
 		$count = $this->post_model->count($filter);
 		$itens = $this->post_model->items($filter, 10, $offset, 'Post_model');
 		$pagination = $this->pagination->initialize([
 			'page_query_string' => true,
-			'base_url' => site_url('noticias'),
+			'base_url' => site_url($baseUrl),
 			'total_rows' => $count
 		]);
-		return ['itens' => $itens, 'pagination' => $pagination];
+		return ['itens' => $itens, 'pagination' => $pagination, 'term' => $term];
 	}
 	protected function getData($page)
 	{
@@ -90,11 +99,15 @@ class Site extends MY_Controller
 			$data->posts = $this->post_model->items($filterLastPosts, 4, 0, 'Post_model');
 			$data->banners = $this->banner_model->items([], NULL, NULL, 'Banner_model');
 		} elseif($page === 'noticias') {
-			$itens = $this->getListPage('post');
+			$itens = $this->getListPage('post', $page);
 			$data->posts = $itens['itens'];
 			$data->pagination = $itens['pagination'];
 		} elseif($page === 'servicos') {
-			$itens = $this->getListPage('service');
+			$itens = $this->getListPage('service', $page);
+			$data->posts = $itens['itens'];
+			$data->pagination = $itens['pagination'];
+		} elseif($page === 'buscar') {
+			$itens = $this->getListPage(null, $page);
 			$data->posts = $itens['itens'];
 			$data->pagination = $itens['pagination'];
 		} else {
