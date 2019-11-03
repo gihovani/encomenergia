@@ -7,7 +7,7 @@ defined('BASEPATH') || exit('No direct script access allowed');
  * @property Contact_model $contact_model
  * @property Config_model $config_model
  */
-class Pages extends MY_Controller
+class Site extends MY_Controller
 {
 	public function __construct()
 	{
@@ -21,11 +21,11 @@ class Pages extends MY_Controller
 	public function view($page = 'home')
 	{
 		$data = $this->getData($page);
-		if (!file_exists(APPPATH . 'views/pages/' . $page . '.php')) {
+		if (!file_exists(APPPATH . 'views/site/' . $page . '.php')) {
 			$page = $data->type;
 		}
 
-		$this->html('pages/' . $page, $data);
+		$this->html('site/' . $page, $data);
 	}
 
 	public function files($file)

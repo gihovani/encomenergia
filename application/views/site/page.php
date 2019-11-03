@@ -6,11 +6,9 @@
 				<?php if(isset($title) && !empty($title)):?>
 				<h2><?php echo $title;?></h2>
 				<?php endif;?>
-				<?php if(isset($description) && !empty($description)):?>
-				<p><?php echo $description;?></p>
-				<?php endif;?>
 				<?php if(isset($image) && !empty($image)):?>
-				<img src="<?php echo $image;?>" alt="<?php echo $title;?>" class="img-responsive my-3">
+					<img src="<?php echo $image; ?>" alt="<?php echo $title; ?>"
+						 class="img-responsive img-thumbnail">
 				<?php endif;?>
 				<?php if(isset($content) && !empty($content)):?>
 					<?php echo $content;?>

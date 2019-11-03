@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Class Migration_Create_table_pages
+ * Class Migration_Create_table_contacts
  * @property CI_DB_forge dbforge
  * @property Contact_model $contact_model
  * @property CI_Loader $load

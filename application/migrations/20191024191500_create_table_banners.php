@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Class Migration_Create_table_pages
+ * Class Migration_Create_table_banners
  * @property CI_DB_forge dbforge
  * @property Banner_model $banner_model
  * @property CI_Loader $load

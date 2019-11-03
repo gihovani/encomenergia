@@ -21,15 +21,11 @@
 		<?php foreach ($posts as $post):?>
 		<div class="row">
 			<div class="col-12">
-				<h4><?php echo $post->title;?></h4>
+				<h3><?php echo $post->title;?></h3>
 				<?php if($post->image):?>
 				<img src="<?php echo $post->getImageUrl();?>" alt="<?php echo $post->title;?>" class="float-left img-responsive m-1 img-thumbnail" style="max-width: 200px">
 				<?php endif;?>
-				<article>
-					<?php echo ellipsize(strip_tags($post->content), 500);?>
-					<a href="<?php echo site_url($post->slug);?>" class="text-danger">ler notícia.</a>
-				</article>
-
+				<article><?php echo ellipsize(strip_tags(html_entity_decode($post->content)), 500);?> <a href="<?php echo site_url($post->slug);?>" class="text-danger">ler notícia.</a></article>
 			</div>
 		</div><hr />
 		<?php endforeach;?>

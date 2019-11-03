@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Class Migration_Create_table_pages
+ * Class Migration_Create_table_posts
  * @property CI_DB_forge dbforge
  * @property Post_model $post_model
  * @property CI_Loader $load
