@@ -79,6 +79,24 @@ $config = [
 		['field' => 'content', 'label' => 'Conteúdo', 'rules' => 'trim'],
 		['field' => 'active', 'label' => 'Ativo', 'rules' => 'trim']
 	],
+	'pages/create' => [
+		['field' => 'type', 'label' => 'Tipo', 'rules' => 'trim|required|callback_doUpload'],
+		['field' => 'title', 'label' => 'Título', 'rules' => 'trim|required|max_length[70]|is_unique[posts.title]'],
+		['field' => 'description', 'label' => 'Descrição', 'rules' => 'trim|required|max_length[160]'],
+		['field' => 'keywords', 'label' => 'Palavras Chave', 'rules' => 'trim|max_length[100]'],
+		['field' => 'author', 'label' => 'Autor', 'rules' => 'trim|max_length[50]'],
+		['field' => 'content', 'label' => 'Conteúdo', 'rules' => 'trim'],
+		['field' => 'active', 'label' => 'Ativo', 'rules' => 'trim']
+	],
+	'pages/update' => [
+		['field' => 'type', 'label' => 'Tipo', 'rules' => 'trim|required|callback_doUpload'],
+		['field' => 'title', 'label' => 'Título', 'rules' => 'trim|required|max_length[70]'],
+		['field' => 'description', 'label' => 'Descrição', 'rules' => 'trim|required|max_length[160]'],
+		['field' => 'keywords', 'label' => 'Palavras Chave', 'rules' => 'trim|max_length[100]'],
+		['field' => 'author', 'label' => 'Autor', 'rules' => 'trim|max_length[50]'],
+		['field' => 'content', 'label' => 'Conteúdo', 'rules' => 'trim'],
+		['field' => 'active', 'label' => 'Ativo', 'rules' => 'trim']
+	],
     'banners/create' => [
         ['field' => 'title', 'label' => 'Título', 'rules' => 'trim|max_length[70]|required|callback_doUpload'],
         ['field' => 'link', 'label' => 'Link', 'rules' => 'trim|max_length[200]'],

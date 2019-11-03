@@ -14,8 +14,8 @@
                 </ul>
             </div>
             <?php endif;?>
-            <form method="post" action="<?php echo site_url('services/create');?>" enctype="multipart/form-data">
-				<input type="hidden" name="type" value="service">
+            <form method="post" action="<?php echo site_url('pages/create');?>" enctype="multipart/form-data">
+				<input type="hidden" name="type" value="page">
 
                 <div class="form-group">
                     <label for="image">Imagem Capa</label>
@@ -26,10 +26,31 @@
                         </small>
                     <?php else:?>
                         <small id="imageHelp" class="form-text text-muted">
-                            Selecione uma imagem de capa para o serviço.
+                            Selecione uma imagem dá página.
                         </small>
                     <?php endif;?>
                 </div>
+
+				<div class="form-group">
+					<label for="slug">Slug*</label>
+					<input type="text"
+						   class="form-control"
+						   id="slug"
+						   name="slug"
+						   aria-describedby="slugHelp"
+						   placeholder="Slug"
+						   maxlength="70"
+						   value="<?php echo set_value('slug');?>">
+					<?php if(isset($errors['slug'])):?>
+						<small id="slugHelp" class="form-text text-warning">
+							<?php echo $errors['slug'];?>
+						</small>
+					<?php else:?>
+						<small id="slugHelp" class="form-text text-muted">
+							Digite a url amigável (sem acentos e espaços).
+						</small>
+					<?php endif;?>
+				</div>
 
 				<div class="form-group">
 					<label for="title">Título*</label>
