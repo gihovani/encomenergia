@@ -528,25 +528,25 @@ footer.footer {
 	background-image: url(../img/footer-bg.png);
 }
 
-@media (max-width: 1200px) {
-	footer.footer {
-		margin-top: 0;
-		height: 380px;
-		background-size: cover;
-	}
-}
+/*@media (max-width: 1200px) {*/
+/*	footer.footer {*/
+/*		margin-top: 0;*/
+/*		height: 380px;*/
+/*		background-size: cover;*/
+/*	}*/
+/*}*/
 
-@media (max-width: 992px) {
-    .footer.footer .container {
-        height: 320px;
-    }
-}
+/*@media (max-width: 992px) {*/
+/*    .footer.footer .container {*/
+/*        height: 320px;*/
+/*    }*/
+/*}*/
 
-@media (max-width: 375px) {
-    .footer.footer .container {
-        height: 340px;
-    }
-}
+/*@media (max-width: 375px) {*/
+/*    .footer.footer .container {*/
+/*        height: 340px;*/
+/*    }*/
+/*}*/
 
 footer.footer .footer-image {
     width: 100%;
