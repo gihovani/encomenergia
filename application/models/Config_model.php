@@ -16,6 +16,7 @@ class Config_model extends MY_Model
 	public $facebook = '';
 	public $instagram = '';
 	public $youtube = '';
+	public $whatsapp = '';
 	public $created_at = '';
 	public $updated_at = '';
 
@@ -26,5 +27,6 @@ class Config_model extends MY_Model
 		$this->facebook = $this->input->post('facebook');
 		$this->instagram = $this->input->post('instagram');
 		$this->youtube = $this->input->post('youtube');
+		$this->whatsapp = $this->input->post('whatsapp');
 	}
 }

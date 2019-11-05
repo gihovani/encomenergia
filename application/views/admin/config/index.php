@@ -12,6 +12,7 @@
                         <th scope="col">Instagram</th>
 						<th scope="col">Facebook</th>
 						<th scope="col">Youtube</th>
+						<th scope="col">WhatsApp</th>
                         <th scope="col"></th>
                     </tr>
                     </thead>
@@ -25,6 +26,7 @@
 						<td><?php echo $item->instagram;?></td>
 						<td><?php echo $item->facebook;?></td>
 						<td><?php echo $item->youtube;?></td>
+						<td><?php echo $item->whatsapp;?></td>
                         <td>
                             <a href="<?php echo site_url('configs/update/'.$item->id);?>">Editar</a>
                         </td>

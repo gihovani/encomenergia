@@ -123,6 +123,7 @@ $config = [
 		['field' => 'facebook', 'label' => 'Facebook', 'rules' => 'trim|valid_url|max_length[200]'],
 		['field' => 'instagram', 'label' => 'Instagram', 'rules' => 'trim|valid_url|max_length[200]'],
 		['field' => 'youtube', 'label' => 'Youtube', 'rules' => 'trim|valid_url|max_length[200]'],
+		['field' => 'whatsapp', 'label' => 'WhatsApp', 'rules' => 'trim|max_length[20]'],
 	],
 	'images/cut' => [
 		['field' => 'image', 'label' => 'Imagem', 'rules' => 'trim|required|min_length[5]'],

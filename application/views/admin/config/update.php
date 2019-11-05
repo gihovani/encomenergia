@@ -99,6 +99,23 @@
 						</small>
 					<?php endif;?>
 				</div>
+
+				<div class="form-group">
+					<label for="whatsapp">WhatsApp (Telefone)</label>
+					<input type="tel"
+						   class="form-control"
+						   id="whatsapp"
+						   name="whatsapp"
+						   aria-describedby="whatsappHelp"
+						   placeholder="WhatsApp"
+						   maxlength="20"
+						   value="<?php echo set_value('whatsapp', $item->whatsapp);?>">
+					<?php if(isset($errors['whatsapp'])):?>
+						<small id="whatsappHelp" class="form-text text-warning">
+							<?php echo $errors['whatsapp'];?>
+						</small>
+					<?php endif;?>
+				</div>
                 <button type="submit" class="btn btn-block btn-primary">Salvar</button>
             </form>
         </div>

@@ -39,6 +39,11 @@ class Migration_Create_table_configs extends CI_Migration
 				'constraint' => '20',
 				'null' => TRUE,
 			],
+			'whatsapp' => [
+				'type' => 'VARCHAR',
+				'constraint' => '20',
+				'null' => TRUE,
+			],
 			'facebook' => [
 				'type' => 'VARCHAR',
 				'constraint' => '200',
