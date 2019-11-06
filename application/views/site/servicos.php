@@ -4,7 +4,7 @@
 		<div class="row">
 			<section class="col-12">
 				<?php if (isset($title) && !empty($title)): ?>
-					<h2><?php echo $title; ?></h2>
+					<h1><?php echo $title; ?></h1>
 				<?php endif; ?>
 				<?php if (isset($image) && !empty($image)): ?>
 					<img src="<?php echo $image; ?>" alt="<?php echo $title; ?>" class="img-responsive my-3">

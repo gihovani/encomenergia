@@ -15,7 +15,7 @@
 					<a href="javascript:void(0)" onclick="window.print()"><img src="<?php echo base_url('assets/img/imprimir.png');?>" alt="imprimir" /></a>
 				</div>
 				<?php if (isset($description) && !empty($description)): ?>
-					<h2><?php echo $description; ?></h2>
+					<h2 class="text-encom"><?php echo $description; ?></h2>
 				<?php endif; ?>
 				<?php if (isset($created_at) && !empty($created_at) || isset($author) && !empty($author)): ?>
 					<p>

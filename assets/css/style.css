@@ -10,11 +10,11 @@ body {
     background: #FFFFFF;
 	color: #555555;
 	line-height: 1;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', sans-erif;
 }
 
 a {
-	color: #808080;
+	color: #333;
 }
 
 a:hover {
@@ -50,17 +50,11 @@ h1,h2,h3,h4,h5,h6 {
 p {
 	line-height: 1.2;
 }
-h1, h2, .page-link, .text-encom {
+
+.page-link, .text-encom {
 	color: #901A21;
 }
 
-h1 {
-	font-size: 3.5rem;
-}
-
-h2 {
-	font-size: 3.3rem;
-}
 h3 {
 	color: #333;
 }

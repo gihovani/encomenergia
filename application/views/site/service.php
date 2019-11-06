@@ -7,7 +7,7 @@
 					<h2><?php echo $title;?></h2>
 				<?php endif;?>
 				<?php if(isset($description) && !empty($description)):?>
-					<h3><?php echo $description;?></h3>
+					<h3 class="text-encom"><?php echo $description;?></h3>
 				<?php endif;?>
 				<?php if(isset($content) && !empty($content)):?>
 					<?php echo $content;?>
