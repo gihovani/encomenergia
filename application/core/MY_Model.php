@@ -13,6 +13,10 @@ abstract class MY_Model extends CI_Model
 
     protected function setFilters($filters = [])
     {
+    	if (empty($filters)) {
+    		return;
+		}
+
         foreach ($filters as $field => $filter) {
             if (is_array($filter) && isset($filter['operator']) && isset($filter['field']) && isset($filter['value'])) {
 				$this->db->{$filter['operator']}($filter['field'], $filter['value']);

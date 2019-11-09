@@ -49,26 +49,47 @@
 
                 </div>
 
-                <div class="form-group">
-                    <label for="title">Título*</label>
-                    <input type="text"
-                           class="form-control"
-                           id="title"
-                           name="title"
-                           aria-describedby="titleHelp"
-                           placeholder="Título"
-                           maxlength="50"
-                           value="<?php echo set_value('title', $item->title);?>">
-                    <?php if(isset($errors['title'])):?>
-                        <small id="titleHelp" class="form-text text-warning">
-                            <?php echo $errors['title'];?>
-                        </small>
-                    <?php else:?>
-                        <small id="titleHelp" class="form-text text-muted">
-                            Digite o Título com no máximo 50 caracteres.
-                        </small>
-                    <?php endif;?>
-                </div>
+				<div class="form-group">
+					<label for="category">Categoria*</label>
+					<input type="text"
+						   class="form-control"
+						   id="category"
+						   name="category"
+						   aria-describedby="categoryHelp"
+						   placeholder="Categoria"
+						   maxlength="50"
+						   value="<?php echo set_value('category', $item->category);?>">
+					<?php if(isset($errors['category'])):?>
+						<small id="categoryHelp" class="form-text text-warning">
+							<?php echo $errors['category'];?>
+						</small>
+					<?php else:?>
+						<small id="categoryHelp" class="form-text text-muted">
+							Digite o Categoria com no máximo 50 caracteres.
+						</small>
+					<?php endif;?>
+				</div>
+
+				<div class="form-group">
+					<label for="title">Título*</label>
+					<input type="text"
+						   class="form-control"
+						   id="title"
+						   name="title"
+						   aria-describedby="titleHelp"
+						   placeholder="Título"
+						   maxlength="50"
+						   value="<?php echo set_value('title', $item->title);?>">
+					<?php if(isset($errors['title'])):?>
+						<small id="titleHelp" class="form-text text-warning">
+							<?php echo $errors['title'];?>
+						</small>
+					<?php else:?>
+						<small id="titleHelp" class="form-text text-muted">
+							Digite o Título com no máximo 50 caracteres.
+						</small>
+					<?php endif;?>
+				</div>
 
                 <div class="form-group">
                     <label for="link">Link</label>

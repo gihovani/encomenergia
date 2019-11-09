@@ -42,7 +42,10 @@
 				</div>
 			<?php endif; ?>
 		<?php else: ?>
-			<p class="text-center">nenhum resultado encontrado.</p>
+			<div class="alert alert-warning">
+				<h5>Atenção! Nenhum item Encontrado.</h5>
+				<p class="text-encom mb-0">Tente pesquisar por uma palavra de maior amplitude.</p>
+			</div>
 		<?php endif; ?>
 	</div>
 </main>

@@ -14,7 +14,7 @@
                     </ul>
                 </div>
             <?php endif;?>
-            <form method="post" action="<?php echo site_url('banners/create');?>" enctype="multipart/form-data">
+            <form method="post" action="<?php echo site_url('clients/create');?>" enctype="multipart/form-data">
 
                 <div class="form-group">
                     <label for="image">
@@ -27,32 +27,53 @@
                         </small>
                     <?php else:?>
                         <small id="imageHelp" class="form-text text-muted">
-                            Selecione uma imagem do Banner.
+                            Selecione uma imagem/logo do Cliente.
                         </small>
                     <?php endif;?>
 
                 </div>
 
-                <div class="form-group">
-                    <label for="title">Título*</label>
-                    <input type="text"
-                           class="form-control"
-                           id="title"
-                           name="title"
-                           aria-describedby="titleHelp"
-                           placeholder="Título"
-                           maxlength="50"
-                           value="<?php echo set_value('title');?>">
-                    <?php if(isset($errors['title'])):?>
-                        <small id="titleHelp" class="form-text text-warning">
-                            <?php echo $errors['title'];?>
-                        </small>
-                    <?php else:?>
-                        <small id="titleHelp" class="form-text text-muted">
-                            Digite o Título com no máximo 50 caracteres.
-                        </small>
-                    <?php endif;?>
-                </div>
+				<div class="form-group">
+					<label for="category">Categoria*</label>
+					<input type="text"
+						   class="form-control"
+						   id="category"
+						   name="category"
+						   aria-describedby="categoryHelp"
+						   placeholder="Categoria"
+						   maxlength="50"
+						   value="<?php echo set_value('category');?>">
+					<?php if(isset($errors['category'])):?>
+						<small id="categoryHelp" class="form-text text-warning">
+							<?php echo $errors['category'];?>
+						</small>
+					<?php else:?>
+						<small id="categoryHelp" class="form-text text-muted">
+							Digite a Categoria com no máximo 50 caracteres.
+						</small>
+					<?php endif;?>
+				</div>
+
+				<div class="form-group">
+					<label for="title">Título*</label>
+					<input type="text"
+						   class="form-control"
+						   id="title"
+						   name="title"
+						   aria-describedby="titleHelp"
+						   placeholder="Título"
+						   maxlength="50"
+						   value="<?php echo set_value('title');?>">
+					<?php if(isset($errors['title'])):?>
+						<small id="titleHelp" class="form-text text-warning">
+							<?php echo $errors['title'];?>
+						</small>
+					<?php else:?>
+						<small id="titleHelp" class="form-text text-muted">
+							Digite o Título com no máximo 50 caracteres.
+						</small>
+					<?php endif;?>
+				</div>
 
                 <div class="form-group">
                     <label for="link">Link</label>
@@ -70,7 +91,7 @@
                         </small>
                     <?php else:?>
                         <small id="linkHelp" class="form-text text-muted">
-                            Digite o link para redirecionamento ao clicar no banner.
+                            Digite o link para redirecionamento ao clicar no cliente.
                         </small>
                     <?php endif;?>
                 </div>

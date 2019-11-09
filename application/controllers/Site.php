@@ -6,6 +6,7 @@ defined('BASEPATH') || exit('No direct script access allowed');
  * @property Banner_model $banner_model
  * @property Contact_model $contact_model
  * @property Config_model $config_model
+ * @property Client_model $client_model
  */
 class Site extends MY_Controller
 {
@@ -16,6 +17,7 @@ class Site extends MY_Controller
 		$this->load->model('banner_model');
 		$this->load->model('contact_model');
 		$this->load->model('config_model');
+		$this->load->model('client_model');
 	}
 
 	public function view($page = 'home')
@@ -107,6 +109,17 @@ class Site extends MY_Controller
 			$items = $this->getListPage('service', $page);
 			$data->posts = $items['items'];
 			$data->pagination = $items['pagination'];
+		} elseif ($page === 'portfolio') {
+			$this
+				->setStaticFile('node_modules/isotope-layout/dist/isotope.pkgd.min.js')
+				->setStaticFile('assets/js/isotope.js');
+			$items = $this->client_model->items(null, null, null, 'Client_model');
+			$categories = [];
+			foreach ($items as $item) {
+				$categories[$item->category] = $item->category;
+			}
+			$data->items = $items;
+			$data->categories = $categories;
 		} elseif ($page === 'buscar') {
 			$items = $this->getListPage(null, $page);
 			$data->title .= ' ' . $this->input->get('termo', true);
