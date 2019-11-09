@@ -97,14 +97,22 @@ $config = [
 		['field' => 'content', 'label' => 'Conteúdo', 'rules' => 'trim'],
 		['field' => 'active', 'label' => 'Ativo', 'rules' => 'trim']
 	],
-    'banners/create' => [
-        ['field' => 'title', 'label' => 'Título', 'rules' => 'trim|max_length[70]|required|callback_doUpload'],
-        ['field' => 'link', 'label' => 'Link', 'rules' => 'trim|max_length[200]'],
-    ],
-    'banners/update' => [
-		['field' => 'title', 'label' => 'Título', 'rules' => 'trim|max_length[70]|required|callback_doUpload'],
+	'banners/create' => [
+		['field' => 'title', 'label' => 'Título', 'rules' => 'trim|max_length[50]|required|callback_doUpload'],
 		['field' => 'link', 'label' => 'Link', 'rules' => 'trim|max_length[200]'],
-    ],
+	],
+	'banners/update' => [
+		['field' => 'title', 'label' => 'Título', 'rules' => 'trim|max_length[50]|required|callback_doUpload'],
+		['field' => 'link', 'label' => 'Link', 'rules' => 'trim|max_length[200]'],
+	],
+	'clients/create' => [
+		['field' => 'title', 'label' => 'Título', 'rules' => 'trim|max_length[50]|required|callback_doUpload'],
+		['field' => 'category', 'label' => 'Categoria', 'rules' => 'trim|max_length[50]'],
+	],
+	'clients/update' => [
+		['field' => 'title', 'label' => 'Título', 'rules' => 'trim|max_length[50]|required|callback_doUpload'],
+		['field' => 'category', 'label' => 'Categoria', 'rules' => 'trim|max_length[50]'],
+	],
     'contacts/create' => [
         ['field' => 'name', 'label' => 'Nome', 'rules' => 'trim|max_length[50]|required'],
         ['field' => 'email', 'label' => 'E-mail', 'rules' => 'trim|max_length[200]|valid_email|required'],

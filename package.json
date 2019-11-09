@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Site Encom Energia",
   "dependencies": {
+    "@fancyapps/fancybox": "^3.5.7",
     "bootstrap": "^4.3.1",
     "isotope-layout": "^3.0.6",
     "jquery": "^3.4.1",

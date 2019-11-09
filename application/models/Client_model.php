@@ -46,11 +46,11 @@ class Client_model extends MY_Model
 
 	public function getImageWidth()
 	{
-		return 600;
+		return 800;
 	}
 
 	public function getImageHeight()
 	{
-		return 430;
+		return 600;
 	}
 }

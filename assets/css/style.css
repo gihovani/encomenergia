@@ -66,6 +66,15 @@ h3 {
 	background-color: #901A21;
 	border-color: #901A21;
 }
+
+.btn-outline-danger {
+	color: #901A21;
+	border-color: #901A21;
+}
+.btn-outline-danger:hover {
+	background-color: #490f0f;
+	border-color: #490f0f;
+}
 .btn-primary {
 	color: #fff;
 	background-color: #901A21;

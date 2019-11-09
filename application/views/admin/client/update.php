@@ -91,26 +91,26 @@
 					<?php endif;?>
 				</div>
 
-                <div class="form-group">
-                    <label for="link">Link</label>
-                    <input type="text"
-                           class="form-control"
-                           id="link"
-                           name="link"
-                           aria-describedby="linkHelp"
-                           placeholder="Link"
-                           maxlength="200"
-                           value="<?php echo set_value('link', $item->link);?>">
-                    <?php if(isset($errors['link'])):?>
-                        <small id="linkHelp" class="form-text text-warning">
-                            <?php echo $errors['link'];?>
-                        </small>
-                    <?php else:?>
-                        <small id="linkHelp" class="form-text text-muted">
-                            Digite o link para redirecionamento ao clicar no banner.
-                        </small>
-                    <?php endif;?>
-                </div>
+<!--                <div class="form-group">-->
+<!--                    <label for="link">Link</label>-->
+<!--                    <input type="text"-->
+<!--                           class="form-control"-->
+<!--                           id="link"-->
+<!--                           name="link"-->
+<!--                           aria-describedby="linkHelp"-->
+<!--                           placeholder="Link"-->
+<!--                           maxlength="200"-->
+<!--                           value="--><?php //echo set_value('link', $item->link);?><!--">-->
+<!--                    --><?php //if(isset($errors['link'])):?>
+<!--                        <small id="linkHelp" class="form-text text-warning">-->
+<!--                            --><?php //echo $errors['link'];?>
+<!--                        </small>-->
+<!--                    --><?php //else:?>
+<!--                        <small id="linkHelp" class="form-text text-muted">-->
+<!--                            Digite o link para redirecionamento ao clicar no banner.-->
+<!--                        </small>-->
+<!--                    --><?php //endif;?>
+<!--                </div>-->
 
                 <button type="submit" class="btn btn-block btn-primary">Salvar</button>
             </form>

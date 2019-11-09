@@ -34,23 +34,18 @@
 					<?php foreach ($items as $item): ?>
 						<div class="element-item col-md-3 <?php echo url_title(convert_accented_characters($item->category)); ?>"
 							 date-category="<?php echo url_title(convert_accented_characters($item->category)); ?>">
-							<a href="<?php echo $item->link; ?>">
-								<figure class="figure img-thumbnail">
+							<a href="<?php echo $item->getImageUrl(); ?>" data-fancybox="<?php echo url_title(convert_accented_characters($item->category)); ?>" data-caption="<?php echo $item->title; ?>">
+								<figure class="figure">
 									<?php if ($item->image): ?>
 										<img src="<?php echo $item->getImageUrl(); ?>" alt="<?php echo $item->title; ?>"
 											 class="figure-img img-fluid rounded w-100 h-100">
 									<?php endif; ?>
-									<figcaption class="figure-caption text-center"><?php echo $item->title; ?></figcaption>
+									<figcaption class="figure-caption sr-only"><?php echo $item->title; ?></figcaption>
 								</figure>
 							</a>
 						</div>
 					<?php endforeach; ?>
 				</div>
-			</div>
-		<?php else: ?>
-			<div class="alert alert-warning">
-				<h5>Atenção! Nenhum item Encontrado.</h5>
-				<p class="text-encom mb-0">Tente pesquisar por uma palavra de maior amplitude.</p>
 			</div>
 		<?php endif; ?>
 	</div>

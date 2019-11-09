@@ -112,6 +112,8 @@ class Site extends MY_Controller
 		} elseif ($page === 'portfolio') {
 			$this
 				->setStaticFile('node_modules/isotope-layout/dist/isotope.pkgd.min.js')
+				->setStaticFile('node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.css')
+				->setStaticFile('node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js')
 				->setStaticFile('assets/js/isotope.js');
 			$items = $this->client_model->items(null, null, null, 'Client_model');
 			$categories = [];
