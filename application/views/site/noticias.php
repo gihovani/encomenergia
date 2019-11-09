@@ -8,7 +8,7 @@
 				<?php endif; ?>
 				<?php if (isset($image) && !empty($image)): ?>
 					<img src="<?php echo $image; ?>" alt="<?php echo $title; ?>"
-						 class="img-responsive img-thumbnail">
+						 class="rounded mx-auto d-block img-responsive img-thumbnail">
 				<?php endif; ?>
 				<?php if (isset($content) && !empty($content)): ?>
 					<div class="mt-3">
