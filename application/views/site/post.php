@@ -8,15 +8,15 @@
 				<?php if (isset($title) && !empty($title)): ?>
 					<h3><?php echo $title; ?></h3>
 				<?php endif; ?>
-				<div class="d-none d-lg-block text-right">
+				<?php if (isset($description) && !empty($description)): ?>
+					<h2 class="text-encom mt-3"><?php echo $description; ?></h2>
+				<?php endif; ?>
+				<div class="d-none d-lg-block text-right mt-3">
 					<a href="whatsapp://send?text=<?php echo site_url($slug);?>" data-action="share/whatsapp/share"><img src="<?php echo base_url('assets/img/whatsapp.png');?>" alt="whatsapp" /></a>
 					<a href="https://facebook.com/sharer.php?u=<?php echo site_url($slug);?>"><img src="<?php echo base_url('assets/img/facebook.png');?>" alt="facebook" /></a>
 					<a href="mailto:?subject=<?php echo urlencode($title);?>&body=<?php echo urlencode(site_url($slug));?>"><img src="<?php echo base_url('assets/img/email.png');?>" alt="e-mail" /></a>
 					<a href="javascript:void(0)" onclick="window.print()"><img src="<?php echo base_url('assets/img/imprimir.png');?>" alt="imprimir" /></a>
 				</div>
-				<?php if (isset($description) && !empty($description)): ?>
-					<h2 class="text-encom"><?php echo $description; ?></h2>
-				<?php endif; ?>
 				<?php if (isset($created_at) && !empty($created_at) || isset($author) && !empty($author)): ?>
 					<p>
 						<?php if (isset($author) && !empty($author)): ?>
@@ -31,10 +31,10 @@
 				<?php if (isset($image) && !empty($image)): ?>
 					<span itemprop="image" itemscope itemtype="http://schema.org/ImageObject"> <meta itemprop="url" content="<?php echo $image; ?>"></span>
 					<img src="<?php echo $image; ?>" alt="<?php echo $title; ?>"
-						 class="img-responsive img-thumbnail mb-3">
+						 class="img-responsive img-thumbnail">
 				<?php endif; ?>
 				<?php if (isset($content) && !empty($content)): ?>
-					<article itemprop="articleBody">
+					<article class="mt-3" itemprop="articleBody">
 						<?php echo $content; ?>
 					</article>
 				<?php endif; ?>

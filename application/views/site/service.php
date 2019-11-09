@@ -4,13 +4,13 @@
 		<div class="row">
 			<section class="col-lg-9 col-md-12">
 				<?php if(isset($title) && !empty($title)):?>
-					<h2><?php echo $title;?></h2>
+					<h2><?php echo $title; ?></h2>
 				<?php endif;?>
 				<?php if(isset($description) && !empty($description)):?>
-					<h3 class="text-encom"><?php echo $description;?></h3>
+					<h3 class="text-encom mt-3"><?php echo $description;?></h3>
 				<?php endif;?>
 				<?php if(isset($content) && !empty($content)):?>
-					<?php echo $content;?>
+					<div class="mt-3"><?php echo $content;?></div>
 				<?php endif;?>
 			</section>
 			<section class="col-lg-3 d-none d-lg-block">

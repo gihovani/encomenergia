@@ -4,13 +4,16 @@
 		<div class="row">
 			<section class="col-12">
 				<?php if (isset($title) && !empty($title)): ?>
-					<h1><?php echo $title; ?></h1>
+					<h1 class="text-encom mb-3"><?php echo $title; ?></h1>
 				<?php endif; ?>
 				<?php if (isset($image) && !empty($image)): ?>
-					<img src="<?php echo $image; ?>" alt="<?php echo $title; ?>" class="img-responsive my-3">
+					<img src="<?php echo $image; ?>" alt="<?php echo $title; ?>"
+						 class="img-responsive img-thumbnail">
 				<?php endif; ?>
 				<?php if (isset($content) && !empty($content)): ?>
-					<?php echo $content; ?>
+					<div class="mt-3">
+						<?php echo $content; ?>
+					</div>
 				<?php endif; ?>
 			</section>
 		</div>

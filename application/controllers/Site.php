@@ -53,7 +53,7 @@ class Site extends MY_Controller
 			];
 			$this->redirect('Sua mensagem foi enviada com sucesso!', '/');
 		} else {
-			$error = '<ul>'.$this->form_validation->error_string('<li>', '</li>').'</ul>';
+			$error = '<ul>' . $this->form_validation->error_string('<li>', '</li>') . '</ul>';
 			$this->redirect($error, 'contato');
 		}
 
@@ -62,26 +62,27 @@ class Site extends MY_Controller
 
 	protected function getListPage($type = null, $baseUrl = 'noticias')
 	{
-		$term = $this->input->get('termo');
+		$term = $this->input->get('termo', true);
 		$filter = ['active' => 1];
 		if ($type) {
 			$filter['type'] = $type;
 		} else {
-			$baseUrl .= '?termo='.$term;
+			$baseUrl .= '?termo=' . $term;
 			$filter[] = ['operator' => 'like', 'field' => 'content', 'value' => $term];
 			$filter[] = ['operator' => 'order_by', 'field' => 'type', 'value' => 'desc'];
 			$filter[] = ['operator' => 'order_by', 'field' => 'id', 'value' => 'desc'];
 		}
 		$offset = intval($this->input->get('per_page'));
 		$count = $this->post_model->count($filter);
-		$itens = $this->post_model->items($filter, 10, $offset, 'Post_model');
+		$items = $this->post_model->items($filter, 10, $offset, 'Post_model');
 		$pagination = $this->pagination->initialize([
 			'page_query_string' => true,
 			'base_url' => site_url($baseUrl),
 			'total_rows' => $count
 		]);
-		return ['itens' => $itens, 'pagination' => $pagination, 'term' => $term];
+		return ['items' => $items, 'pagination' => $pagination, 'term' => $term];
 	}
+
 	protected function getData($page)
 	{
 		/** @var Post_model $data */
@@ -98,18 +99,19 @@ class Site extends MY_Controller
 				->setStaticFile('node_modules/slick-carousel/slick/slick.min.js');
 			$data->posts = $this->post_model->items($filterLastPosts, 4, 0, 'Post_model');
 			$data->banners = $this->banner_model->items([], NULL, NULL, 'Banner_model');
-		} elseif($page === 'noticias') {
-			$itens = $this->getListPage('post', $page);
-			$data->posts = $itens['itens'];
-			$data->pagination = $itens['pagination'];
-		} elseif($page === 'servicos') {
-			$itens = $this->getListPage('service', $page);
-			$data->posts = $itens['itens'];
-			$data->pagination = $itens['pagination'];
-		} elseif($page === 'buscar') {
-			$itens = $this->getListPage(null, $page);
-			$data->posts = $itens['itens'];
-			$data->pagination = $itens['pagination'];
+		} elseif ($page === 'noticias') {
+			$items = $this->getListPage('post', $page);
+			$data->posts = $items['items'];
+			$data->pagination = $items['pagination'];
+		} elseif ($page === 'servicos') {
+			$items = $this->getListPage('service', $page);
+			$data->posts = $items['items'];
+			$data->pagination = $items['pagination'];
+		} elseif ($page === 'buscar') {
+			$items = $this->getListPage(null, $page);
+			$data->title .= ' ' . $this->input->get('termo', true);
+			$data->posts = $items['items'];
+			$data->pagination = $items['pagination'];
 		} else {
 			$data->posts = $this->post_model->items($filterLastPosts, 2, 0, 'Post_model');
 		}
