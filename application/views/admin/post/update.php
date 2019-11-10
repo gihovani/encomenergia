@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
     <div class="row pt-5 pb-5">
         <div class="col">
             <?php if(isset($errors) && $errors):?>

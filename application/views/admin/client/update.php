@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
     <div class="row pt-5 pb-5">
         <div class="col">
             <?php if(isset($errors) && $errors):?>
@@ -14,7 +14,7 @@
                     </ul>
                 </div>
             <?php endif;?>
-			<?php $action = 'banners/update/'.$item->id;?>
+			<?php $action = 'clients/update/'.$item->id;?>
             <form method="post" action="<?php echo site_url($action);?>" enctype="multipart/form-data">
                 <div class="form-group">
                     <?php if ($item->getImageUrl()):?>
@@ -43,7 +43,7 @@
                         </small>
                     <?php else:?>
                         <small id="imageHelp" class="form-text text-muted">
-                            Selecione uma imagem do Banner.
+							Selecione uma imagem/logo do Cliente.
                         </small>
                     <?php endif;?>
 
@@ -107,7 +107,7 @@
 <!--                        </small>-->
 <!--                    --><?php //else:?>
 <!--                        <small id="linkHelp" class="form-text text-muted">-->
-<!--                            Digite o link para redirecionamento ao clicar no banner.-->
+<!--                            Digite o link para redirecionamento ao clicar no cliente.-->
 <!--                        </small>-->
 <!--                    --><?php //endif;?>
 <!--                </div>-->

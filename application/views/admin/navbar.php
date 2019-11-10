@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
     <div class="row">
         <div class="col">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -41,6 +41,7 @@
 								<a class="dropdown-item" href="<?php echo site_url('services/index');?>">Listar Todos</a>
 							</div>
 						</li>
+
 						<li class="nav-item dropdown<?php echo ($menuActive === 'pages') ? ' active' : '' ;?>">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarPages" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								Páginas
@@ -48,6 +49,16 @@
 							<div class="dropdown-menu" aria-labelledby="navbarPages">
 								<a class="dropdown-item" href="<?php echo site_url('pages/create');?>">Nova Página</a>
 								<a class="dropdown-item" href="<?php echo site_url('pages/index');?>">Listar Todas</a>
+							</div>
+						</li>
+
+						<li class="nav-item dropdown<?php echo ($menuActive === 'banners') ? ' active' : '' ;?>">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarBanners" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Banners
+							</a>
+							<div class="dropdown-menu" aria-labelledby="navbarBanners">
+								<a class="dropdown-item" href="<?php echo site_url('banners/create');?>">Novo Banner</a>
+								<a class="dropdown-item" href="<?php echo site_url('banners/index');?>">Listar Todos</a>
 							</div>
 						</li>
 

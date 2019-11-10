@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
     <div class="row">
         <div class="col">
             <div class="table-responsive-lg">
@@ -7,7 +7,6 @@
                     <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Data</th>
                         <th scope="col">Image</th>
 						<th scope="col">Categoria</th>
                         <th scope="col">Título</th>
@@ -19,8 +18,9 @@
                     <?php foreach ($items as $item):?>
                     <tr>
                         <th scope="row"><?php echo $item->id;?></th>
-                        <td><?php echo date('d/m/Y H:i:s', strtotime($item->created_at));?></td>
-                        <td><?php echo $item->image;?></td>
+                        <td><?php if ($item->getImageUrl()):?>
+								<img src="<?php echo $item->getImageUrl();?>" class="img-responsive" style="max-width: 200px" />
+							<?php endif;?></td>
 						<td><?php echo $item->category;?></td>
                         <td><?php echo $item->title;?></td>
                         <td>

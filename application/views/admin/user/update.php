@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
     <div class="row justify-content-center mt-lg-5">
         <div class="col-6">
             <?php if(isset($errors) && $errors):?>

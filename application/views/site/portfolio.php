@@ -32,13 +32,13 @@
 			<div class="grid">
 				<div class="row">
 					<?php foreach ($items as $item): ?>
-						<div class="element-item col-md-3 <?php echo url_title(convert_accented_characters($item->category)); ?>"
+						<div class="element-item <?php echo url_title(convert_accented_characters($item->category)); ?>"
 							 date-category="<?php echo url_title(convert_accented_characters($item->category)); ?>">
 							<a href="<?php echo $item->getImageUrl(); ?>" data-fancybox="<?php echo url_title(convert_accented_characters($item->category)); ?>" data-caption="<?php echo $item->title; ?>">
-								<figure class="figure">
+								<figure class="figure mb-0">
 									<?php if ($item->image): ?>
 										<img src="<?php echo $item->getImageUrl(); ?>" alt="<?php echo $item->title; ?>"
-											 class="figure-img img-fluid rounded w-100 h-100">
+											 class="figure-img img-fluid rounded w-100 h-100 mb-0">
 									<?php endif; ?>
 									<figcaption class="figure-caption sr-only"><?php echo $item->title; ?></figcaption>
 								</figure>
@@ -47,6 +47,7 @@
 					<?php endforeach; ?>
 				</div>
 			</div>
+			<hr class="clearfix">
 		<?php endif; ?>
 	</div>
 </main>

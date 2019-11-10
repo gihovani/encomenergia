@@ -67,6 +67,10 @@ h3 {
 	border-color: #901A21;
 }
 
+.element-item{
+	width: 20%;
+}
+
 .btn-outline-danger {
 	color: #901A21;
 	border-color: #901A21;
