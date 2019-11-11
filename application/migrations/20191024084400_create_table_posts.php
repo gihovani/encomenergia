@@ -100,6 +100,7 @@ class Migration_Create_table_posts extends CI_Migration
 	{
 		$data = [];
 		$data[] = [
+			'active' => 1,
 			'type' => 'post',
 			'image' => 'news-1.png',
 			'title' => 'Aneel',
@@ -108,6 +109,7 @@ class Migration_Create_table_posts extends CI_Migration
 			'content' => '<h2>Titulo Aneel</h2><p>The sea desires with amnesty, taste the cook islands.</p><p>The sea desires with amnesty, taste the cook islands.</p>'
 		];
 		$data[] = [
+			'active' => 1,
 			'type' => 'post',
 			'image' => 'news-1.png',
 			'title' => 'Geradores Turbogeradores',
@@ -116,6 +118,7 @@ class Migration_Create_table_posts extends CI_Migration
 			'content' => '<h2>Titulo Geradores Turbogeradores</h2><p>The sea desires with amnesty, taste the cook islands.</p><p>The sea desires with amnesty, taste the cook islands.</p>'
 		];
 		$data[] = [
+			'active' => 1,
 			'type' => 'post',
 			'image' => 'news-1.png',
 			'title' => 'Fovoltaica',
@@ -124,6 +127,7 @@ class Migration_Create_table_posts extends CI_Migration
 			'content' => '<h2>Titulo Fovoltaica</h2><p>The sea desires with amnesty, taste the cook islands.</p><p>The sea desires with amnesty, taste the cook islands.</p>'
 		];
 		$data[] = [
+			'active' => 1,
 			'type' => 'post',
 			'image' => 'news-1.png',
 			'title' => 'Seu Dinheiro',
@@ -132,6 +136,7 @@ class Migration_Create_table_posts extends CI_Migration
 			'content' => '<h2>Titulo Seu Dinheiro</h2><p>The sea desires with amnesty, taste the cook islands.</p><p>The sea desires with amnesty, taste the cook islands.</p>'
 		];
 		$data[] = [
+			'active' => 1,
 			'type' => 'service',
 			'title' => 'Engenharia Civil',
 			'image' => 'engenharia-civil.png',
@@ -140,6 +145,7 @@ class Migration_Create_table_posts extends CI_Migration
 			'content' => 'The sea desires with amnesty, taste the cook islands, The sea desires with amnesty, taste the cook islands.'
 		];
 		$data[] = [
+			'active' => 1,
 			'type' => 'service',
 			'title' => 'Engenharia de Automação',
 			'image' => 'engenharia-auto.png',
@@ -148,6 +154,7 @@ class Migration_Create_table_posts extends CI_Migration
 			'content' => 'The sea desires with amnesty, taste the cook islands, The sea desires with amnesty, taste the cook islands.'
 		];
 		$data[] = [
+			'active' => 1,
 			'type' => 'service',
 			'title' => 'Engenharia de Energia',
 			'image' => 'engenharia-energia.png',
@@ -156,6 +163,7 @@ class Migration_Create_table_posts extends CI_Migration
 			'content' => 'The sea desires with amnesty, taste the cook islands, The sea desires with amnesty, taste the cook islands.'
 		];
 		$data[] = [
+			'active' => 1,
 			'type' => 'service',
 			'title' => 'Engenharia Fotovoltáica',
 			'image' => 'engenharia-fotovoltaica.png',
@@ -164,6 +172,7 @@ class Migration_Create_table_posts extends CI_Migration
 			'content' => 'The sea desires with amnesty, taste the cook islands, The sea desires with amnesty, taste the cook islands.'
 		];
 		$data[] = [
+			'active' => 1,
 			'type' => 'service',
 			'title' => 'Engenharia de Manutenção',
 			'image' => 'engenharia-manutencao.png',
@@ -172,6 +181,7 @@ class Migration_Create_table_posts extends CI_Migration
 			'content' => 'The sea desires with amnesty, taste the cook islands, The sea desires with amnesty, taste the cook islands.'
 		];
 		$data[] = [
+			'active' => 1,
 			'type' => 'service',
 			'title' => 'Engenharia de Telecomunicação',
 			'image' => 'engenharia-telecomunic.png',
@@ -180,6 +190,7 @@ class Migration_Create_table_posts extends CI_Migration
 			'content' => 'The sea desires with amnesty, taste the cook islands, The sea desires with amnesty, taste the cook islands.'
 		];
 		$data[] = [
+			'active' => 1,
 			'type' => 'service',
 			'title' => 'Engenharia Elétrica',
 			'image' => 'engenharia-eletrica.png',
@@ -188,6 +199,7 @@ class Migration_Create_table_posts extends CI_Migration
 			'content' => 'The sea desires with amnesty, taste the cook islands, The sea desires with amnesty, taste the cook islands.'
 		];
 		$data[] = [
+			'active' => 1,
 			'type' => 'service',
 			'title' => 'Engenharia Mecânica',
 			'image' => 'engenharia-mecanica.png',
@@ -196,6 +208,7 @@ class Migration_Create_table_posts extends CI_Migration
 			'content' => 'The sea desires with amnesty, taste the cook islands, The sea desires with amnesty, taste the cook islands.'
 		];
 		$data[] = [
+			'active' => 1,
 			'type' => 'page',
 			'slug' => 'home',
 			'title' => 'Página Inicial',
@@ -204,6 +217,7 @@ class Migration_Create_table_posts extends CI_Migration
 			'content' => ''
 		];
 		$data[] = [
+			'active' => 1,
 			'type' => 'page',
 			'title' => 'Quem  Somos',
 			'keywords' => 'Página Inicial, Encom Energia, Energia Solar, Energia Eólica',
@@ -211,6 +225,7 @@ class Migration_Create_table_posts extends CI_Migration
 			'content' => ''
 		];
 		$data[] = [
+			'active' => 1,
 			'type' => 'page',
 			'title' => 'Onde Atuamos',
 			'keywords' => 'Página Inicial, Encom Energia, Energia Solar, Energia Eólica',
@@ -218,6 +233,7 @@ class Migration_Create_table_posts extends CI_Migration
 			'content' => ''
 		];
 		$data[] = [
+			'active' => 1,
 			'type' => 'page',
 			'title' => 'Compliance',
 			'keywords' => 'Página Inicial, Encom Energia, Energia Solar, Energia Eólica',
@@ -225,6 +241,7 @@ class Migration_Create_table_posts extends CI_Migration
 			'content' => ''
 		];
 		$data[] = [
+			'active' => 1,
 			'type' => 'page',
 			'title' => 'Contato',
 			'keywords' => 'Página Inicial, Encom Energia, Energia Solar, Energia Eólica',
@@ -232,14 +249,15 @@ class Migration_Create_table_posts extends CI_Migration
 			'content' => ''
 		];
 		$data[] = [
+			'active' => 1,
 			'type' => 'page',
-			'slug' => '',
 			'title' => 'Portfólio',
 			'keywords' => 'Página Inicial, Encom Energia, Energia Solar, Energia Eólica',
 			'description' => 'The sea desires with amnesty, taste the cook islands, The sea desires with amnesty, taste the cook islands.',
 			'content' => ''
 		];
 		$data[] = [
+			'active' => 1,
 			'type' => 'page',
 			'title' => 'Onde Atuamos',
 			'keywords' => 'Página Inicial, Encom Energia, Energia Solar, Energia Eólica',
@@ -247,16 +265,18 @@ class Migration_Create_table_posts extends CI_Migration
 			'content' => ''
 		];
 		$data[] = [
+			'active' => 1,
 			'type' => 'page',
-			'slug' => 'posts',
+			'slug' => 'noticias',
 			'title' => 'Veja todas as Notícias',
 			'keywords' => 'Página Inicial, Encom Energia, Energia Solar, Energia Eólica',
 			'description' => 'The sea desires with amnesty, taste the cook islands, The sea desires with amnesty, taste the cook islands.',
 			'content' => ''
 		];
 		$data[] = [
+			'active' => 1,
 			'type' => 'page',
-			'slug' => 'services',
+			'slug' => 'servicos',
 			'title' => 'Serviços de Engenharia',
 			'keywords' => 'Página Inicial, Encom Energia, Energia Solar, Energia Eólica',
 			'description' => 'The sea desires with amnesty, taste the cook islands, The sea desires with amnesty, taste the cook islands.',

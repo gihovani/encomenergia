@@ -85,6 +85,43 @@ class Site extends MY_Controller
 		return ['items' => $items, 'pagination' => $pagination, 'term' => $term];
 	}
 
+	private function filterLastPosts($slug)
+	{
+		return [
+			'type' => 'post',
+			'active' => 1,
+			[
+				'operator' => 'where',
+				'field' => 'slug !=',
+				'value' => $slug
+			],
+			[
+				'operator' => 'order_by',
+				'field' => 'id',
+				'value' => 'desc'
+			]
+		];
+
+	}
+
+	private function filterLastServices($slug)
+	{
+		return [
+			'type' => 'service',
+			'active' => 1,
+			[
+				'operator' => 'where',
+				'field' => 'slug !=',
+				'value' => $slug
+			],
+			[
+				'operator' => 'order_by',
+				'field' => 'title',
+				'value' => 'asc'
+			]
+		];
+	}
+
 	protected function getData($page)
 	{
 		/** @var Post_model $data */
@@ -92,9 +129,11 @@ class Site extends MY_Controller
 		if (empty($data)) {
 			show_404();
 		}
+		$filterLastPosts = $this->filterLastPosts($page);
+		$filterServices = $this->filterLastServices($page);
 		$data->image = $data->getImageUrl();
-		$filterLastPosts = ['type' => 'post', 'active' => 1, ['operator' => 'order_by', 'field' => 'id', 'value' => 'desc']];
-		$filterServices = ['type' => 'service', 'active' => 1, ['operator' => 'order_by', 'field' => 'title', 'value' => 'asc']];
+		$data->config = $this->config_model->item(1);
+		$data->services = $this->post_model->items($filterServices, NULL, NULL, 'Post_model');
 		if ($page === 'home') {
 			$this
 				->setStaticFile('node_modules/slick-carousel/slick/slick.css')
@@ -106,6 +145,10 @@ class Site extends MY_Controller
 			$data->posts = $items['items'];
 			$data->pagination = $items['pagination'];
 		} elseif ($page === 'servicos') {
+			if (count($data->services)) {
+				$service = $data->services[0];
+				return $this->redirect(null, $service->slug);
+			}
 			$items = $this->getListPage('service', $page);
 			$data->posts = $items['items'];
 			$data->pagination = $items['pagination'];
@@ -131,8 +174,6 @@ class Site extends MY_Controller
 			$data->posts = $this->post_model->items($filterLastPosts, 2, 0, 'Post_model');
 		}
 
-		$data->config = $this->config_model->item(1);
-		$data->services = $this->post_model->items($filterServices, NULL, NULL, 'Post_model');
 		if (isset($data->scripts) && !empty($data->scripts)) {
 			$this->setStaticFile('files/' . $page . '.js');
 		}
