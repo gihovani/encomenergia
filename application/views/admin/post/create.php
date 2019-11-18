@@ -14,7 +14,7 @@
                 </ul>
             </div>
             <?php endif;?>
-            <form method="post" action="<?php echo site_url('pots/create');?>" enctype="multipart/form-data">
+            <form method="post" action="<?php echo site_url('posts/create');?>" enctype="multipart/form-data">
 				<input type="hidden" name="type" value="post">
 
                 <div class="form-group">
