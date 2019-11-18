@@ -34,7 +34,7 @@
 						 class="rounded mx-auto d-block img-responsive img-thumbnail">
 				<?php endif; ?>
 				<?php if (isset($content) && !empty($content)): ?>
-					<article class="mt-3" itemprop="articleBody">
+					<article class="mt-3 content" itemprop="articleBody">
 						<?php echo $content; ?>
 					</article>
 				<?php endif; ?>

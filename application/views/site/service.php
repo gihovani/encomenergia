@@ -7,7 +7,7 @@
 					<h2 class="text-encom"><?php echo $title; ?></h2>
 				<?php endif;?>
 				<?php if(isset($content) && !empty($content)):?>
-					<div class="mt-3"><?php echo $content;?></div>
+					<div class="mt-3 content"><?php echo $content;?></div>
 				<?php endif;?>
 			</section>
 			<section class="col-lg-3 d-none d-lg-block">

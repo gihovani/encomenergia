@@ -11,7 +11,7 @@
 						 class="rounded mx-auto d-block img-responsive img-thumbnail">
 				<?php endif;?>
 				<?php if(isset($content) && !empty($content)):?>
-					<div class="mt-3">
+					<div class="mt-3 content">
 						<?php echo $content;?>
 					</div>
 				<?php endif;?>

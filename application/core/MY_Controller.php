@@ -86,8 +86,8 @@ class MY_Controller extends CI_Controller
 
 		if ($this->router->class === 'site') {
 			$this
-				->setStaticFile('assets/css/style.css')
-				->setStaticFile('assets/js/default.js');
+				->setStaticFile('assets/css/style.css?v='.SITE_VERSION)
+				->setStaticFile('assets/js/default.js?v='.SITE_VERSION);
 			return $this->template(['site/top', 'templates/message', $page, 'site/bottom']);
 		}
 
