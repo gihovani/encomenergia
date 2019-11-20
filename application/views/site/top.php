@@ -77,7 +77,11 @@
 						<a class="nav-link<?php echo ($slug === 'noticias') ? ' active' : '' ;?>" href="<?php echo site_url('noticias');?>">NOTÍCIAS</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link<?php echo ($slug === 'portfolio') ? ' active' : '' ;?>" href="<?php echo site_url('portfolio');?>">PORTFÓLIO</a>
+						<a class="nav-link<?php echo ($slug === 'portfolio') ? ' active' : '' ;?> dropdown-toggle" href="#" id="bd-portfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">PORTFÓLIO</a>
+						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="bd-portfolio">
+							<a class="dropdown-item" href="https://encomenergia.com.br/portfolio.pdf" target="_blank">BAIXAR PORTFÓLIO</a>
+							<a class="dropdown-item" href="<?php echo site_url('portfolio');?>">GALERIA DE FOTOS</a>
+						</div>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link<?php echo ($slug === 'compliance') ? ' active' : '' ;?>" href="<?php echo site_url('compliance');?>">COMPLIANCE</a>
