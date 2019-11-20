@@ -116,7 +116,7 @@ class Site extends MY_Controller
 			],
 			[
 				'operator' => 'order_by',
-				'field' => 'title',
+				'field' => 'id',
 				'value' => 'asc'
 			]
 		];
