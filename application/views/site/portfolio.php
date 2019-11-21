@@ -19,33 +19,26 @@
 		</div>
 		<?php if (isset($categories) && count($categories) > 0): ?>
 			<div class="row">
-				<div id="filters" class="container-fluid mb-5 mt-4">
-					<button class="btn btn-outline-danger" aria-pressed="true" data-filter="*">Todos</button>
+				<div class="col-lg-12">
+					<div class="portfolioFilter clearfix">
+						<a href="#" data-filter="*" class="current">Todos</a>
 					<?php foreach ($categories as $category): ?>
-						<button class="btn btn-outline-danger"
-								data-filter=".<?php echo url_title(convert_accented_characters($category)); ?>"><?php echo $category; ?></button>
+						<a href="#" data-filter=".<?php echo url_title(convert_accented_characters($category)); ?>"><?php echo $category; ?></a>
 					<?php endforeach; ?>
+					</div>
 				</div>
 			</div>
 		<?php endif; ?>
 		<?php if (isset($items) && count($items)): ?>
-			<div class="grid">
-				<div class="row">
-					<?php foreach ($items as $item): ?>
-						<div class="element-item <?php echo url_title(convert_accented_characters($item->category)); ?>"
-							 date-category="<?php echo url_title(convert_accented_characters($item->category)); ?>">
-							<a href="<?php echo $item->getImageUrl(); ?>" data-fancybox="<?php echo url_title(convert_accented_characters($item->category)); ?>" data-caption="<?php echo $item->title; ?>">
-								<figure class="figure mb-0">
-									<?php if ($item->image): ?>
-										<img src="<?php echo $item->getImageUrl(); ?>" alt="<?php echo $item->title; ?>"
-											 class="figure-img img-fluid rounded w-100 h-100 mb-0">
-									<?php endif; ?>
-									<figcaption class="figure-caption sr-only"><?php echo $item->title; ?></figcaption>
-								</figure>
-							</a>
-						</div>
-					<?php endforeach; ?>
-				</div>
+			<div class="portfolioContainer">
+				<?php foreach ($items as $item): ?>
+					<div class="objects <?php echo url_title(convert_accented_characters($item->category)); ?>"
+						 date-category="<?php echo url_title(convert_accented_characters($item->category)); ?>">
+						<a href="<?php echo $item->getImageUrl(); ?>" data-fancybox="<?php echo url_title(convert_accented_characters($item->category)); ?>" data-caption="<?php echo $item->title; ?>">
+							<img src="<?php echo $item->getImageUrl(); ?>" alt="<?php echo $item->title; ?>">
+						</a>
+					</div>
+				<?php endforeach; ?>
 			</div>
 			<hr class="clearfix">
 		<?php endif; ?>

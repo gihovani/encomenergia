@@ -157,7 +157,7 @@ class Site extends MY_Controller
 				->setStaticFile('node_modules/isotope-layout/dist/isotope.pkgd.min.js')
 				->setStaticFile('node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.css')
 				->setStaticFile('node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js')
-				->setStaticFile('assets/js/isotope.js');
+				->setStaticFile('assets/js/isotope.js?v='.SITE_VERSION);
 			$items = $this->client_model->items(null, null, null, 'Client_model');
 			$categories = [];
 			foreach ($items as $item) {

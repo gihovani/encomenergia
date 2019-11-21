@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
 @media print {
 	header, footer {
 		display: none;
@@ -10,7 +10,7 @@ body {
     background: #FFFFFF;
 	color: #555555;
 	line-height: 1;
-    font-family: 'Roboto', sans-erif;
+    font-family: 'Open Sans', Helvetica, sans-erif;
 }
 
 a {
@@ -55,8 +55,13 @@ p {
 	line-height: 1.2;
 }
 
+.dropdown-menu {
+	background-color: transparent;
+	border: 0 none;
+}
+
 .page-link, .text-encom {
-	color: #901A21;
+	color: #901A21 !important;
 }
 
 h3 {
@@ -71,18 +76,7 @@ h3 {
 	border-color: #901A21;
 }
 
-.element-item{
-	width: 20%;
-}
 
-.btn-outline-danger {
-	color: #901A21;
-	border-color: #901A21;
-}
-.btn-outline-danger:hover {
-	background-color: #490f0f;
-	border-color: #490f0f;
-}
 .btn-primary {
 	color: #fff;
 	background-color: #901A21;
@@ -671,4 +665,67 @@ footer.footer .footer-links-title {
     .page {
         padding-top: 190px;
     }
+}
+.objects img {
+	max-width: 210px;
+	margin: 5px;
+}
+
+.objects a {
+	display: block;
+	overflow: hidden;
+}
+
+.portfolioFilter {
+	padding: 15px 0;
+}
+
+.portfolioFilter a {
+	margin-right: 6px;
+	color: #666;
+	text-decoration: none;
+	border: 1px solid #ccc;
+	padding: 4px 15px;
+	border-radius: 50px;
+	display: inline-block;
+	margin: 4px 2px;
+	padding: 5px 5px;
+}
+
+.portfolioFilter a.current {
+	background: #1e1e1e;
+	border: 1px solid #1e1e1e;
+	color: #f9f9f9;
+}
+.portfolioContainer{
+
+}
+
+.isotope-item {
+	z-index: 2;
+}
+
+.isotope-hidden.isotope-item {
+	pointer-events: none;
+	z-index: 1;
+}
+
+.isotope,
+.isotope .isotope-item {
+	/* change duration value to whatever you like */
+	-webkit-transition-duration: 0.8s;
+	-moz-transition-duration: 0.8s;
+	transition-duration: 0.8s;
+}
+
+.isotope {
+	-webkit-transition-property: height, width;
+	-moz-transition-property: height, width;
+	transition-property: height, width;
+}
+
+.isotope .isotope-item {
+	-webkit-transition-property: -webkit-transform, opacity;
+	-moz-transition-property: -moz-transform, opacity;
+	transition-property: transform, opacity;
 }
