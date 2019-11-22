@@ -10,7 +10,7 @@ body {
     background: #FFFFFF;
 	color: #555555;
 	line-height: 1;
-    font-family: 'Open Sans', Helvetica, sans-erif;
+	font-family: 'Open Sans', Helvetica, sans-serif;
 }
 
 a {
@@ -24,6 +24,10 @@ a:hover {
 
 a.no-effect:hover {
 	opacity: 1;
+}
+
+.content {
+	font-size: 16px;
 }
 
 .content img {
@@ -63,9 +67,16 @@ p {
 .page-link, .text-encom {
 	color: #901A21 !important;
 }
-
+h2 {
+	font-size: 2rem;
+	line-height: 2.25rem;
+	letter-spacing: -0.09375rem;
+}
 h3 {
 	color: #333;
+	font-size: 1.125rem;
+	line-height: 1.5rem;
+	letter-spacing: -.03125rem;
 }
 .page-link:hover {
 	color: #490f0f;
