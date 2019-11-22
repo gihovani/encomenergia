@@ -144,14 +144,6 @@ class Site extends MY_Controller
 			$items = $this->getListPage('post', $page);
 			$data->posts = $items['items'];
 			$data->pagination = $items['pagination'];
-		} elseif ($page === 'servicos') {
-			if (count($data->services)) {
-				$service = $data->services[0];
-				return $this->redirect(null, $service->slug);
-			}
-			$items = $this->getListPage('service', $page);
-			$data->posts = $items['items'];
-			$data->pagination = $items['pagination'];
 		} elseif ($page === 'portfolio') {
 			$this
 				->setStaticFile('node_modules/isotope-layout/dist/isotope.pkgd.min.js')

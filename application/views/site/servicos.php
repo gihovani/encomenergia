@@ -17,21 +17,32 @@
 				<?php endif; ?>
 			</section>
 		</div>
-		<?php if (isset($posts) && count($posts)): ?>
+		<?php if (isset($services) && count($services)): ?>
 			<div class="row">
-				<?php foreach ($posts as $post): ?>
-					<div class="col-4 mt-2">
-						<a href="<?php echo site_url($post->slug); ?>">
-							<figure class="figure">
-								<?php if ($post->image): ?>
-									<img src="<?php echo $post->getImageUrl(); ?>" alt="<?php echo $post->title; ?>"
-										 class="figure-img img-fluid rounded">
-								<?php endif; ?>
-								<figcaption class="figure-caption sr-only"><?php echo $post->title; ?></figcaption>
-							</figure>
-						</a>
+				<section class="col-12 mb-5">
+					<div class="accordion" id="accordionServices">
+						<?php $colors = ''; ?>
+						<?php foreach ($services as $service): ?>
+						<?php if(empty($colors)) $colors = explode(',', SERVICES_COLORS);?>
+						<?php $color = array_shift($colors);?>
+						<div class="card">
+							<div class="card-header collapsed" id="h-<?php echo $service->slug;?>" data-toggle="collapse" data-target="#<?php echo $service->slug;?>" aria-expanded="true" aria-controls="<?php echo $service->slug;?>" style="background-color: <?php echo $color;?>">
+								<h2 class="mb-0">
+									<button class="btn btn-link" type="button">
+										<?php echo $service->title;?>
+									</button>
+								</h2>
+							</div>
+
+							<div id="<?php echo $service->slug;?>" class="collapse" aria-labelledby="h-<?php echo $service->slug;?>" data-parent="#accordionServices">
+								<div class="card-body content">
+									<?php echo $service->content;?>
+								</div>
+							</div>
+						</div>
+						<?php endforeach; ?>
 					</div>
-				<?php endforeach; ?>
+				</section>
 			</div>
 			<?php if (isset($pagination) && !empty($pagination)): ?>
 				<div class="row">

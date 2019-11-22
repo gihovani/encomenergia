@@ -92,4 +92,5 @@ define('EMAIL_TO', 'gihovani.demetrio@dentalspeed.com');
 define('PROJECT_NAME', 'Encom Energia');
 define('UPLOAD_PATH', './uploads/');
 define('PHONE_CTA', '+556132340202');
-define('SITE_VERSION', '1.11');
+define('SITE_VERSION', '1.13');
+define('SERVICES_COLORS', '#9b1725,#e81130,#f17632,#fbc23d,#f79942,#ef7b4c,#e75618');

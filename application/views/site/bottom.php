@@ -33,7 +33,7 @@
 							<ul class="footer-links">
 								<?php foreach ($services as $service): ?>
 									<li>
-										<a href="<?php echo site_url($service->slug); ?>"><?php echo mb_strtoupper($service->title); ?></a>
+										<a href="<?php echo site_url('servicos') . '#' . $service->slug; ?>"><?php echo mb_strtoupper($service->title); ?></a>
 									</li>
 								<?php endforeach; ?>
 							</ul>
