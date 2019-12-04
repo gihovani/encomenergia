@@ -282,6 +282,15 @@ class Migration_Create_table_posts extends CI_Migration
 			'description' => 'The sea desires with amnesty, taste the cook islands, The sea desires with amnesty, taste the cook islands.',
 			'content' => ''
 		];
+		$data[] = [
+			'active' => 1,
+			'type' => 'page',
+			'slug' => 'buscar',
+			'title' => 'Buscar ',
+			'keywords' => 'Página Pesquisa, Encom Energia, Energia Solar, Energia Eólica',
+			'description' => 'The sea desires with amnesty, taste the cook islands, The sea desires with amnesty, taste the cook islands.',
+			'content' => ''
+		];
 
 		foreach ($data as $entry) {
 			$_POST = $entry;

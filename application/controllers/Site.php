@@ -30,59 +30,62 @@ class Site extends MY_Controller
 		$this->html('site/' . $page, $data);
 	}
 
-	public function files($file)
+	protected function getData($page)
 	{
-		$content = '';
-		$fileInfo = pathinfo($file);
-		$data = $this->getData($fileInfo['filename']);
-		$extension = $fileInfo['extension'];
-		if ($extension === 'js') {
-			$content = $data->scripts;
-		} elseif ($extension === 'css') {
-			$content = $data->styles;
+		/** @var Post_model $data */
+		$data = $this->post_model->item($page, 'slug', 'Post_model');
+		if (empty($data)) {
+			show_404();
 		}
-		$this->show($content, $extension);
-	}
-
-	public function submit()
-	{
-		if ($this->form_validation->run()) {
-			$post = $this->input->post();
-			$response = [
-				'success' => true,
-				'post' => $post,
-				'email_sended' => $this->contact_model->insert()
-			];
-			$this->redirect('Sua mensagem foi enviada com sucesso!', '/');
-		} else {
-			$error = '<ul>' . $this->form_validation->error_string('<li>', '</li>') . '</ul>';
-			$this->redirect($error, 'contato');
+		$filterLastPosts = $this->filterLastPosts($page);
+		$filterServices = $this->filterLastServices($page);
+		$data->image = $data->getImageUrl();
+		$data->config = $this->config_model->item(1);
+		$data->services = $this->post_model->items($filterServices, NULL, NULL, 'Post_model');
+		if ($page === 'home') {
+			$this
+				->setStaticFile('node_modules/slick-carousel/slick/slick.css')
+				->setStaticFile('node_modules/slick-carousel/slick/slick.min.js');
+			$data->posts = $this->post_model->items($filterLastPosts, 4, 0, 'Post_model');
+			$data->banners = $this->banner_model->items([], NULL, NULL, 'Banner_model');
+		} elseif ($page === 'noticias') {
+			$items = $this->getListPage('post', $page);
+			$data->posts = $items['items'];
+			$data->pagination = $items['pagination'];
+		} elseif ($page === 'portfolio') {
+			$this
+				->setStaticFile('node_modules/isotope-layout/dist/isotope.pkgd.min.js')
+				->setStaticFile('node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.css')
+				->setStaticFile('node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js')
+				->setStaticFile('assets/js/isotope.js?v=' . SITE_VERSION);
+			$items = $this->client_model->items(null, null, null, 'Client_model');
+			$categories = [];
+			foreach ($items as $item) {
+				$categories[$item->category] = $item->category;
+			}
+			$data->items = $items;
+			$data->categories = $categories;
+		} elseif ($page === 'buscar') {
+			$items = $this->getListPage(null, $page);
+			$data->title .= ' ' . $this->input->get('termo', true);
+			$data->posts = $items['items'];
+			$data->pagination = $items['pagination'];
+		} elseif ($page === 'onde-atuamos') {
+			if ($data->config->googlemap) {
+				$data->content .= '<hr />' . $data->config->googlemap;
+			}
+		}
+		if (!isset($data->posts)) {
+			$data->posts = $this->post_model->items($filterLastPosts, 2, 0, 'Post_model');
 		}
 
-		$this->show(json_encode($response, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
-	}
-
-	protected function getListPage($type = null, $baseUrl = 'noticias')
-	{
-		$term = $this->input->get('termo', true);
-		$filter = ['active' => 1];
-		if ($type) {
-			$filter['type'] = $type;
-		} else {
-			$baseUrl .= '?termo=' . $term;
-			$filter[] = ['operator' => 'like', 'field' => 'content', 'value' => $term];
-			$filter[] = ['operator' => 'order_by', 'field' => 'type', 'value' => 'desc'];
-			$filter[] = ['operator' => 'order_by', 'field' => 'id', 'value' => 'desc'];
+		if (isset($data->scripts) && !empty($data->scripts)) {
+			$this->setStaticFile('files/' . $page . '.js');
 		}
-		$offset = intval($this->input->get('per_page'));
-		$count = $this->post_model->count($filter);
-		$items = $this->post_model->items($filter, 10, $offset, 'Post_model');
-		$pagination = $this->pagination->initialize([
-			'page_query_string' => true,
-			'base_url' => site_url($baseUrl),
-			'total_rows' => $count
-		]);
-		return ['items' => $items, 'pagination' => $pagination, 'term' => $term];
+		if (isset($data->styles) && !empty($data->styles)) {
+			$this->setStaticFile('files/' . $page . '.css');
+		}
+		return $data;
 	}
 
 	private function filterLastPosts($slug)
@@ -122,57 +125,59 @@ class Site extends MY_Controller
 		];
 	}
 
-	protected function getData($page)
+	protected function getListPage($type = null, $baseUrl = 'noticias')
 	{
-		/** @var Post_model $data */
-		$data = $this->post_model->item($page, 'slug', 'Post_model');
-		if (empty($data)) {
-			show_404();
-		}
-		$filterLastPosts = $this->filterLastPosts($page);
-		$filterServices = $this->filterLastServices($page);
-		$data->image = $data->getImageUrl();
-		$data->config = $this->config_model->item(1);
-		$data->services = $this->post_model->items($filterServices, NULL, NULL, 'Post_model');
-		if ($page === 'home') {
-			$this
-				->setStaticFile('node_modules/slick-carousel/slick/slick.css')
-				->setStaticFile('node_modules/slick-carousel/slick/slick.min.js');
-			$data->posts = $this->post_model->items($filterLastPosts, 4, 0, 'Post_model');
-			$data->banners = $this->banner_model->items([], NULL, NULL, 'Banner_model');
-		} elseif ($page === 'noticias') {
-			$items = $this->getListPage('post', $page);
-			$data->posts = $items['items'];
-			$data->pagination = $items['pagination'];
-		} elseif ($page === 'portfolio') {
-			$this
-				->setStaticFile('node_modules/isotope-layout/dist/isotope.pkgd.min.js')
-				->setStaticFile('node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.css')
-				->setStaticFile('node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js')
-				->setStaticFile('assets/js/isotope.js?v='.SITE_VERSION);
-			$items = $this->client_model->items(null, null, null, 'Client_model');
-			$categories = [];
-			foreach ($items as $item) {
-				$categories[$item->category] = $item->category;
-			}
-			$data->items = $items;
-			$data->categories = $categories;
-		} elseif ($page === 'buscar') {
-			$items = $this->getListPage(null, $page);
-			$data->title .= ' ' . $this->input->get('termo', true);
-			$data->posts = $items['items'];
-			$data->pagination = $items['pagination'];
+		$term = $this->input->get('termo', true);
+		$filter = ['active' => 1];
+		if ($type) {
+			$filter['type'] = $type;
 		} else {
-			$data->posts = $this->post_model->items($filterLastPosts, 2, 0, 'Post_model');
+			$baseUrl .= '?termo=' . $term;
+			$filter[] = ['operator' => 'like', 'field' => 'content', 'value' => $term];
+			$filter[] = ['operator' => 'order_by', 'field' => 'type', 'value' => 'desc'];
+			$filter[] = ['operator' => 'order_by', 'field' => 'id', 'value' => 'desc'];
+		}
+		$offset = intval($this->input->get('per_page'));
+		$count = $this->post_model->count($filter);
+		$items = $this->post_model->items($filter, 10, $offset, 'Post_model');
+		$pagination = $this->pagination->initialize([
+			'page_query_string' => true,
+			'base_url' => site_url($baseUrl),
+			'total_rows' => $count
+		]);
+		return ['items' => $items, 'pagination' => $pagination, 'term' => $term];
+	}
+
+	public function files($file)
+	{
+		$content = '';
+		$fileInfo = pathinfo($file);
+		$data = $this->getData($fileInfo['filename']);
+		$extension = $fileInfo['extension'];
+		if ($extension === 'js') {
+			$content = $data->scripts;
+		} elseif ($extension === 'css') {
+			$content = $data->styles;
+		}
+		$this->show($content, $extension);
+	}
+
+	public function submit()
+	{
+		if ($this->form_validation->run()) {
+			$post = $this->input->post();
+			$response = [
+				'success' => true,
+				'post' => $post,
+				'email_sended' => $this->contact_model->insert()
+			];
+			$this->redirect('Sua mensagem foi enviada com sucesso!', '/');
+		} else {
+			$error = '<ul>' . $this->form_validation->error_string('<li>', '</li>') . '</ul>';
+			$this->redirect($error, 'contato');
 		}
 
-		if (isset($data->scripts) && !empty($data->scripts)) {
-			$this->setStaticFile('files/' . $page . '.js');
-		}
-		if (isset($data->styles) && !empty($data->styles)) {
-			$this->setStaticFile('files/' . $page . '.css');
-		}
-		return $data;
+		$this->show(json_encode($response, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
 	}
 
 

@@ -59,6 +59,11 @@ class Migration_Create_table_configs extends CI_Migration
 				'constraint' => '200',
 				'null' => TRUE,
 			],
+			'googlemap' => [
+				'type' => 'VARCHAR',
+				'constraint' => '5000',
+				'null' => TRUE,
+			],
 			'created_at' => [
 				'type' => 'timestamp',
 				'null' => TRUE,

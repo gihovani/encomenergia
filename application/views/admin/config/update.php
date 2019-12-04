@@ -1,53 +1,54 @@
 <div class="container-fluid">
-    <div class="row pt-5 pb-5">
-        <div class="col">
-            <?php if(isset($errors) && $errors):?>
-                <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                    <strong>Dados incorretos.</strong> Por favor, os errors e tente novamente.
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <ul>
-                        <?php foreach ($errors as $error):?>
-                            <li><?php echo $error;?></li>
-                        <?php endforeach;?>
-                    </ul>
-                </div>
-            <?php endif;?>
-            <form method="post" action="<?php echo site_url('configs/update/'.$item->id);?>" enctype="multipart/form-data">
-                <div class="form-group">
-                    <label for="email">E-mail*</label>
-                    <input type="email"
-                           class="form-control"
-                           id="email"
-                           name="email"
-                           aria-describedby="emailHelp"
-                           placeholder="E-mail"
-                           maxlength="200"
-                           value="<?php echo set_value('email', $item->email);?>">
-                    <?php if(isset($errors['email'])):?>
-                        <small id="emailHelp" class="form-text text-warning">
-                            <?php echo $errors['email'];?>
-                        </small>
-                    <?php endif;?>
-                </div>
+	<div class="row pt-5 pb-5">
+		<div class="col">
+			<?php if (isset($errors) && $errors): ?>
+				<div class="alert alert-warning alert-dismissible fade show" role="alert">
+					<strong>Dados incorretos.</strong> Por favor, os errors e tente novamente.
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<ul>
+						<?php foreach ($errors as $error): ?>
+							<li><?php echo $error; ?></li>
+						<?php endforeach; ?>
+					</ul>
+				</div>
+			<?php endif; ?>
+			<form method="post" action="<?php echo site_url('configs/update/' . $item->id); ?>"
+				  enctype="multipart/form-data">
+				<div class="form-group">
+					<label for="email">E-mail*</label>
+					<input type="email"
+						   class="form-control"
+						   id="email"
+						   name="email"
+						   aria-describedby="emailHelp"
+						   placeholder="E-mail"
+						   maxlength="200"
+						   value="<?php echo set_value('email', $item->email); ?>">
+					<?php if (isset($errors['email'])): ?>
+						<small id="emailHelp" class="form-text text-warning">
+							<?php echo $errors['email']; ?>
+						</small>
+					<?php endif; ?>
+				</div>
 
-                <div class="form-group">
-                    <label for="phone">Telefone</label>
-                    <input type="text"
-                           class="form-control"
-                           id="phone"
-                           name="phone"
-                           aria-describedby="phoneHelp"
-                           placeholder="Telefone"
-                           maxlength="20"
-                           value="<?php echo set_value('phone', $item->phone);?>">
-                    <?php if(isset($errors['phone'])):?>
-                        <small id="phoneHelp" class="form-text text-warning">
-                            <?php echo $errors['phone'];?>
-                        </small>
-                    <?php endif;?>
-                </div>
+				<div class="form-group">
+					<label for="phone">Telefone</label>
+					<input type="text"
+						   class="form-control"
+						   id="phone"
+						   name="phone"
+						   aria-describedby="phoneHelp"
+						   placeholder="Telefone"
+						   maxlength="20"
+						   value="<?php echo set_value('phone', $item->phone); ?>">
+					<?php if (isset($errors['phone'])): ?>
+						<small id="phoneHelp" class="form-text text-warning">
+							<?php echo $errors['phone']; ?>
+						</small>
+					<?php endif; ?>
+				</div>
 
 				<div class="form-group">
 					<label for="facebook">Facebook</label>
@@ -58,12 +59,12 @@
 						   aria-describedby="facebookHelp"
 						   placeholder="Facebook"
 						   maxlength="200"
-						   value="<?php echo set_value('facebook', $item->facebook);?>">
-					<?php if(isset($errors['facebook'])):?>
+						   value="<?php echo set_value('facebook', $item->facebook); ?>">
+					<?php if (isset($errors['facebook'])): ?>
 						<small id="facebookHelp" class="form-text text-warning">
-							<?php echo $errors['facebook'];?>
+							<?php echo $errors['facebook']; ?>
 						</small>
-					<?php endif;?>
+					<?php endif; ?>
 				</div>
 
 				<div class="form-group">
@@ -75,12 +76,12 @@
 						   aria-describedby="instagramHelp"
 						   placeholder="Instagram"
 						   maxlength="200"
-						   value="<?php echo set_value('instagram', $item->instagram);?>">
-					<?php if(isset($errors['instagram'])):?>
+						   value="<?php echo set_value('instagram', $item->instagram); ?>">
+					<?php if (isset($errors['instagram'])): ?>
 						<small id="instagramHelp" class="form-text text-warning">
-							<?php echo $errors['instagram'];?>
+							<?php echo $errors['instagram']; ?>
 						</small>
-					<?php endif;?>
+					<?php endif; ?>
 				</div>
 
 				<div class="form-group">
@@ -92,12 +93,12 @@
 						   aria-describedby="youtubeHelp"
 						   placeholder="Youtube"
 						   maxlength="200"
-						   value="<?php echo set_value('youtube', $item->youtube);?>">
-					<?php if(isset($errors['youtube'])):?>
+						   value="<?php echo set_value('youtube', $item->youtube); ?>">
+					<?php if (isset($errors['youtube'])): ?>
 						<small id="youtubeHelp" class="form-text text-warning">
-							<?php echo $errors['youtube'];?>
+							<?php echo $errors['youtube']; ?>
 						</small>
-					<?php endif;?>
+					<?php endif; ?>
 				</div>
 
 				<div class="form-group">
@@ -109,15 +110,31 @@
 						   aria-describedby="whatsappHelp"
 						   placeholder="WhatsApp"
 						   maxlength="20"
-						   value="<?php echo set_value('whatsapp', $item->whatsapp);?>">
-					<?php if(isset($errors['whatsapp'])):?>
+						   value="<?php echo set_value('whatsapp', $item->whatsapp); ?>">
+					<?php if (isset($errors['whatsapp'])): ?>
 						<small id="whatsappHelp" class="form-text text-warning">
-							<?php echo $errors['whatsapp'];?>
+							<?php echo $errors['whatsapp']; ?>
 						</small>
-					<?php endif;?>
+					<?php endif; ?>
 				</div>
-                <button type="submit" class="btn btn-block btn-primary">Salvar</button>
-            </form>
-        </div>
-    </div>
+
+
+				<div class="form-group">
+					<label for="googlemap">Google Map</label>
+					<textarea class="form-control"
+							  id="googlemap"
+							  name="googlemap"
+							  aria-describedby="googlemapHelp"
+							  placeholder="Google Map"
+							  maxlength="5000"><?php echo set_value('googlemap', $item->googlemap); ?></textarea>
+					<?php if (isset($errors['googlemap'])): ?>
+						<small id="googlemapHelp" class="form-text text-warning">
+							<?php echo $errors['googlemap']; ?>
+						</small>
+					<?php endif; ?>
+				</div>
+				<button type="submit" class="btn btn-block btn-primary">Salvar</button>
+			</form>
+		</div>
+	</div>
 </div>
