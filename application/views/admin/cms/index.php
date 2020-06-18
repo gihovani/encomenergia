@@ -24,7 +24,8 @@
                         <td><?php echo $item->title;?></td>
 						<td><?php echo ($item->active) ? 'Sim' : 'Não';?></td>
                         <td>
-                            <a href="<?php echo site_url('cms/update/'.$item->id);?>">Editar</a>
+                            <a href="<?php echo site_url('cms/update/'.$item->id);?>">Editar</a> -
+							<a href="<?php echo site_url('cms/delete/'.$item->id);?>" onclick="return confirm('Tem certeza que deseja remover esta página?');">Remover</a>
                         </td>
                     </tr>
                     <?php endforeach;?>

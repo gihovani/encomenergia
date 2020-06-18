@@ -22,7 +22,8 @@
 							<?php endif;?></td>
                         <td><?php echo $item->title;?></td>
                         <td>
-                            <a href="<?php echo site_url('banners/update/'.$item->id);?>">Editar</a>
+                            <a href="<?php echo site_url('banners/update/'.$item->id);?>">Editar</a> -
+							<a href="<?php echo site_url('banners/delete/'.$item->id);?>" onclick="return confirm('Tem certeza que deseja remover este Banner?');">Remover</a>
                         </td>
                     </tr>
                     <?php endforeach;?>

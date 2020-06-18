@@ -24,7 +24,8 @@
 						<td><?php echo $item->category;?></td>
                         <td><?php echo $item->title;?></td>
                         <td>
-                            <a href="<?php echo site_url('clients/update/'.$item->id);?>">Editar</a>
+                            <a href="<?php echo site_url('clients/update/'.$item->id);?>">Editar</a> -
+							<a href="<?php echo site_url('clients/delete/'.$item->id);?>" onclick="return confirm('Tem certeza que deseja remover este cliente?');">Remover</a>
                         </td>
                     </tr>
                     <?php endforeach;?>

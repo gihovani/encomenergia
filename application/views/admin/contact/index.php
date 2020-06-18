@@ -24,7 +24,8 @@
                         <td><?php echo $item->phone;?></td>
                         <td><?php echo $item->email;?></td>
                         <td>
-                            <a href="<?php echo site_url('contacts/update/'.$item->id);?>">Editar</a>
+                            <a href="<?php echo site_url('contacts/update/'.$item->id);?>">Editar</a> -
+							<a href="<?php echo site_url('contacts/delete/'.$item->id);?>" onclick="return confirm('Tem certeza que deseja remover este contato?');">Remover</a>
                         </td>
                     </tr>
                     <?php endforeach;?>

@@ -20,7 +20,8 @@
                         <td><?php echo $item->name;?></td>
                         <td><?php echo $item->login;?></td>
                         <td>
-                            <a href="<?php echo site_url('users/update/'.$item->id);?>">Editar</a>
+                            <a href="<?php echo site_url('users/update/'.$item->id);?>">Editar</a> -
+							<a href="<?php echo site_url('users/delete/'.$item->id);?>" onclick="return confirm('Tem certeza que deseja remover este usuário?');">Remover</a>
                         </td>
                     </tr>
                     <?php endforeach;?>
