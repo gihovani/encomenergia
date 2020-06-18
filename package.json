@@ -6,7 +6,7 @@
     "@fancyapps/fancybox": "^3.5.7",
     "bootstrap": "^4.3.1",
     "isotope-layout": "^3.0.6",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "popper.js": "^1.16.0",
     "slick-carousel": "^1.8.1"
   },
