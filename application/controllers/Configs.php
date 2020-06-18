@@ -21,7 +21,7 @@ class Configs extends MY_Controller
 			$offset = 0;
 		}
 		$data = [
-			'items' => $this->config_model->items($filter, ITEMS_PER_PAGE, $offset, 'Config_model'),
+			'items' => $this->config_model->items($filter, ITEMS_PER_PAGE, $offset, 'Config_model', 'id desc'),
 			'count' => $count,
 			'pagination' => $this->pagination->initialize([
 				'base_url' => site_url('configs/index'),

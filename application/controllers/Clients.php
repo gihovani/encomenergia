@@ -21,7 +21,7 @@ class Clients extends MY_Controller
 			$offset = 0;
 		}
 		$data = [
-			'items' => $this->client_model->items($filter, ITEMS_PER_PAGE, $offset, 'Client_model'),
+			'items' => $this->client_model->items($filter, ITEMS_PER_PAGE, $offset, 'Client_model', 'id desc'),
 			'count' => $count,
 			'pagination' => $this->pagination->initialize([
 				'base_url' => site_url('clients/index'),

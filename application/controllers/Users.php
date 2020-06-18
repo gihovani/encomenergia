@@ -21,7 +21,7 @@ class Users extends MY_Controller
 			$offset = 0;
 		}
 		$data = [
-			'items' => $this->user_model->items($filter, ITEMS_PER_PAGE, $offset),
+			'items' => $this->user_model->items($filter, ITEMS_PER_PAGE, $offset, 'User_model', 'id desc'),
 			'count' => $count,
 			'pagination' => $this->pagination->initialize([
 				'base_url' => site_url('posts/index'),

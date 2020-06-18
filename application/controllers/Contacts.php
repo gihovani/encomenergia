@@ -21,7 +21,7 @@ class Contacts extends MY_Controller
 			$offset = 0;
 		}
 		$data = [
-			'items' => $this->contact_model->items($filter, ITEMS_PER_PAGE, $offset, 'Contact_model'),
+			'items' => $this->contact_model->items($filter, ITEMS_PER_PAGE, $offset, 'Contact_model', 'id desc'),
 			'count' => $count,
 			'pagination' => $this->pagination->initialize([
 				'base_url' => site_url('contacts/index'),

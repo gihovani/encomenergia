@@ -21,7 +21,7 @@ class Posts extends MY_Controller
 			$offset = 0;
 		}
 		$data = [
-			'items' => $this->post_model->items($filter, ITEMS_PER_PAGE, $offset, 'Post_model'),
+			'items' => $this->post_model->items($filter, ITEMS_PER_PAGE, $offset, 'Post_model', 'id desc'),
 			'count' => $count,
 			'pagination' => $this->pagination->initialize([
 				'base_url' => site_url('posts/index'),

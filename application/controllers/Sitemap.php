@@ -16,7 +16,7 @@ class Sitemap extends MY_Controller
 	{
 		$filter = ['active' => 1];
 		$data = [
-			'items' => $this->post_model->items($filter, null, 'Post_model'),
+			'items' => $this->post_model->items($filter, null, 'Post_model', 'id desc'),
 		];
 		$content = $this->load->view('sitemap/xml', $data, true);
 		$this->show($content, 'text/xml');

@@ -31,8 +31,11 @@ abstract class MY_Model extends CI_Model
         $this->setFilters($filters);
         return $this->db->count_all_results($this->table);
     }
-    public function items($filters = [], $limit = ITEMS_PER_PAGE, $offset = null, $resultType = 'object')
+    public function items($filters = [], $limit = ITEMS_PER_PAGE, $offset = null, $resultType = 'object', $orderBy = null)
     {
+		if ($orderBy) {
+			$this->db->order_by($orderBy);
+		}
         $this->setFilters($filters);
         $query = $this->db->get($this->table, $limit, $offset);
         return $query->result($resultType);

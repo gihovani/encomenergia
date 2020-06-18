@@ -21,7 +21,7 @@ class Banners extends MY_Controller
 			$offset = 0;
 		}
 		$data = [
-			'items' => $this->banner_model->items($filter, ITEMS_PER_PAGE, $offset, 'Banner_model'),
+			'items' => $this->banner_model->items($filter, ITEMS_PER_PAGE, $offset, 'Banner_model', 'id desc'),
 			'count' => $count,
 			'pagination' => $this->pagination->initialize([
 				'base_url' => site_url('banners/index'),
